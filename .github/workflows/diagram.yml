@@ -1,0 +1,31 @@
+name: Create repo diagram
+
+# Run every time you push to main, or manually from the Actions tab
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# The action needs write access to push the diagram commit
+permissions:
+  contents: write
+
+jobs:
+  diagram:
+    runs-on: ubuntu-latest
+    steps:
+      # Pull a copy of the repo onto GitHub's runner
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Build the SVG and push it to a separate "diagram" branch (created automatically)
+      - name: Update diagram
+        uses: githubocto/repo-visualizer@0.7.1
+        with:
+          output_file: "diagram.svg"
+          branch: "diagram"
+          commit_message: "Repo visualizer: updated diagram [skip ci]"
+          # Folders left out of the picture (R/Quarto caches, reference PDFs, workflow folder)
+          excluded_paths: ".github,.Rproj.user,.quarto,resources"
+          # Large binaries would dominate since circle size = file size; delete this line to show them
+          excluded_globs: "**/*.nc;**/*.tif;**/*.sqlite3;**/*.kmz"
