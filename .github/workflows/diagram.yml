@@ -27,8 +27,8 @@ jobs:
           # Folders to exclude from diagram
           excluded_paths: ".git,.github,.Rproj.user"
           
-          # Files to exclude from diagram (**/.DS_Store = all .DS_Store files in all subfolders; **/java_maxent = all java_maxent folders and their contents)
-          excluded_globs: ".gitattributes;.gitignore;**/.DS_Store;**/java_maxent"
+          # Files to exclude from diagram (**/.DS_Store = all .DS_Store files in all subfolders; **/java_maxent = all java_maxent folders and their contents; **/erddap_raw/*.nc = all .nc files INSIDE 'erddap_raw' folder)
+          excluded_globs: ".gitattributes;.gitignore;**/.DS_Store;**/java_maxent;**/erddap_raw/*.nc"
 
       # Replace the "diagram" branch with a single commit holding only the new diagram.svg (main is not touched)
       - name: Push diagram to diagram branch
