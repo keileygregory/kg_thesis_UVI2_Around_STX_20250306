@@ -1,6 +1,6 @@
 name: Create repo diagram
 
-# Run only manually, from the Actions tab (to update diagram: Actions tab → click on "Create repo diagram" workflow in the left sidebar → click "Run workflow" dropdown on right then green "Run workflow" button)
+# Run only manually, from the Actions tab (to update diagram: Actions tab → click on "Create repo diagram" workflow in the left sidebar → click "Run workflow" dropdown → ensure "main" branch is selected → click "Run workflow" button)
 on:
   workflow_dispatch:
 
@@ -17,16 +17,27 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Build the SVG and push it to a separate "diagram" branch (created automatically)
+      # Build the SVG only; pushing is done in the next step because the action's own push fails once the "diagram" branch exists
       - name: Update diagram
         uses: githubocto/repo-visualizer@0.7.1
         with:
           output_file: "diagram.svg"
-          branch: "diagram"
-          commit_message: "Repo visualizer: updated diagram [skip ci]"
+          should_push: false
           
           # Folders to exclude from diagram
           excluded_paths: ".git,.github,.Rproj.user"
           
           # Files to exclude from diagram (**/.DS_Store = all .DS_Store files in all subfolders)
           excluded_globs: ".gitattributes;.gitignore;**/.DS_Store"
+
+      # Replace the "diagram" branch with a single commit holding only the new diagram.svg (main is not touched)
+      - name: Push diagram to diagram branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mv diagram.svg "$RUNNER_TEMP/diagram.svg"
+          git switch --orphan diagram
+          mv "$RUNNER_TEMP/diagram.svg" diagram.svg
+          git add diagram.svg
+          git commit -m "Repo visualizer: updated diagram"
+          git push --force origin diagram
