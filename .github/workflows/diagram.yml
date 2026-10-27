@@ -1,9 +1,7 @@
 name: Create repo diagram
 
-# Run every time you push to main, or manually from the Actions tab
+# Run only manually, from the Actions tab (to update diagram: Actions tab → click on "Create repo diagram" workflow in the left sidebar → click "Run workflow" dropdown on right then green "Run workflow" button)
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 # The action needs write access to push the diagram commit
