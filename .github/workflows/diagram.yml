@@ -14,6 +14,7 @@ jobs:
   diagram:
     runs-on: ubuntu-latest
     steps:
+    
       # Pull a copy of the repo onto GitHub's runner
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,7 +26,9 @@ jobs:
           output_file: "diagram.svg"
           branch: "diagram"
           commit_message: "Repo visualizer: updated diagram [skip ci]"
-          # Folders left out of the picture (R/Quarto caches, reference PDFs, workflow folder)
-          excluded_paths: ".github,.Rproj.user,.quarto,resources"
-          # Large binaries would dominate since circle size = file size; delete this line to show them
-          excluded_globs: "**/*.nc;**/*.tif;**/*.sqlite3;**/*.kmz"
+          
+          # Folders to exclude from diagram
+          excluded_paths: ".git,.github,.Rproj.user"
+          
+          # Files to exclude from diagram (**/.DS_Store = all .DS_Store files in all subfolders)
+          excluded_globs: ".gitattributes;.gitignore;**/.DS_Store"
