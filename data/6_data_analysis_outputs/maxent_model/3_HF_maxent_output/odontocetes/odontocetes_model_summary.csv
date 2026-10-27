@@ -1,0 +1,2 @@
+"species","n_occurrences","optimal_rm","optimal_fc","AICc","delta_AICc","AUC_train","AUC_val","AUC_diff"
+"odontocetes",197,2,"LQH",4478.1124060122,0,0.750804568527919,0.638730769910084,0.155217424781616

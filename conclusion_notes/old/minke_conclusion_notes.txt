@@ -1,0 +1,20 @@
+MINKE CONCLUSION NOTES
+based on arcgis heatmap, environmental variables density multifaceted plot, and maxent map
+
+-------------------------------------------------------------------------
+**OVERALL**
+- Preference for offshore, deeper-water environments associated with cooler, saltier open-ocean surface conditions, with the primary hotspot at the shelf edge drop-off into the Anegada Gap. 
+- Ecologically consistent with dwarf minke whale behavior in tropical regions, where they tend to use deeper pelagic and slope environments rather than the shallow shelf habitat favored by humpbacks. 
+
+* Humpbacks are shelf-associated and nearshore, minkes are slope-associated and offshore.
+-------------------------------------------------------------------------
+
+Spatial distribution and bathymetry — 
+the detection density map shows the single strongest minke hotspot on the northern transect leg east of St. Croix, right at the shelf edge where bathymetry drops off steeply toward the Anegada Gap. Secondary hotspots appear on the southern and eastern transect legs over deeper water. This is strikingly different from humpbacks — minke detections are concentrated further offshore and at greater depths. The bathymetric depth density plot confirms this, with minke detections tracking closely with background across the full depth range but with a slight shift toward deeper water (~-2000 to -3000m) compared to humpbacks.
+
+Temperature and salinity — 
+minke water temperature at detection nearly mirrors background, suggesting very little thermal selectivity at depth. However SST shows a notable shift — minke detections peak at cooler SST (~27.0–27.3°C) compared to background which peaks higher (~27.3–27.5°C), indicating preference for slightly cooler surface water masses. Sea surface salinity detections are strongly concentrated at the higher end (~36.9 PSU), opposite to humpbacks which favored fresher surface water — this saltier signature is consistent with open ocean water masses rather than nearshore mixed water.
+
+Distance to shore — 
+unlike humpbacks, minke detections show a broad, flat distribution across all distances from shore with no strong nearshore peak, and the detection curve actually extends further offshore than background in some ranges. This confirms minkes are not selecting for proximity to St. Croix.
+ 

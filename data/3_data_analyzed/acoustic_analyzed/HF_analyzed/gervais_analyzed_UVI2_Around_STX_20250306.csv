@@ -1,0 +1,5 @@
+mission_name,n_channels,sample_rate_kHz,bit_depth,ID,UID,suborder,family,genus,species,common_name,start_datetime_UTC,end_datetime_UTC,av_datetime_UTC
+UVI2_Around_STX_20250306,1,240,16,759,6041,Odontoceti,Ziphiidae,Mesoplodon,europaeus,gervais' beaked whale,2025-03-20 14:42:44+00:00,2025-03-20 14:43:44+00:00,2025-03-20 14:43:14+00:00
+UVI2_Around_STX_20250306,1,240,16,760,6042,Odontoceti,Ziphiidae,Mesoplodon,europaeus,gervais' beaked whale,2025-03-20 14:47:44+00:00,2025-03-20 14:48:44+00:00,2025-03-20 14:48:14+00:00
+UVI2_Around_STX_20250306,1,240,16,802,6085,Odontoceti,Ziphiidae,Mesoplodon,europaeus,gervais' beaked whale,2025-03-21 19:42:44+00:00,2025-03-21 19:43:44+00:00,2025-03-21 19:43:14+00:00
+UVI2_Around_STX_20250306,1,240,16,940,7902,Odontoceti,Ziphiidae,Mesoplodon,europaeus,gervais' beaked whale,2025-03-23 05:27:44+00:00,2025-03-23 05:28:44+00:00,2025-03-23 05:28:14+00:00

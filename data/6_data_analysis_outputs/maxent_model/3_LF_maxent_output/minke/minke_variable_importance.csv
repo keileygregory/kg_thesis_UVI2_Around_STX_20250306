@@ -1,0 +1,7 @@
+"variable","contribution","perm_importance","perm_rank","contrib_rank","rank_diff"
+"bathymetry",33.5701,33.8414,2,1,1
+"SST",32.1837,33.9982,1,2,-1
+"dist_shore",20.3516,22.662,3,3,0
+"slope",6.1484,3.2957,5,4,1
+"SSS",4.6758,5.0878,4,5,-1
+"Chl_log",3.0704,1.115,6,6,0

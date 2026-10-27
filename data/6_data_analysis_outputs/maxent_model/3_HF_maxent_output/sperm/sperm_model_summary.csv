@@ -1,0 +1,2 @@
+"species","n_occurrences","optimal_rm","optimal_fc","AICc","delta_AICc","AUC_train","AUC_val","AUC_diff"
+"sperm",124,2.5,"LQH",2962.14419868591,0,0.792034677419355,0.658509120208129,0.208445913514691

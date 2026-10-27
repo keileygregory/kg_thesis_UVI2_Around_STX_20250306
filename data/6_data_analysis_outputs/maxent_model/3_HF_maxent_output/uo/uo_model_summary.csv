@@ -1,0 +1,2 @@
+"species","n_occurrences","optimal_rm","optimal_fc","AICc","delta_AICc","AUC_train","AUC_val","AUC_diff"
+"uo",193,2,"LQH",4376.12742660413,0,0.749033937823834,0.644995924075212,0.14856508133047

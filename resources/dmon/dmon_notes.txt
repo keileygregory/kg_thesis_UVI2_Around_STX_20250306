@@ -1,0 +1,37 @@
+
+High-frequency audio sampling rate = 240 kHz
+High-frequency recorded frequency range = 0-120 kHz
+
+Low-frequency audio sampling rate = 2 kHz
+High-frequency recorded frequency range = 0-1 kHz
+
+------------------------------------------------------------------------
+
+bit depth = n bits used to represent a single sample = bits/sample
+	- 16-bit signed integer = 16 binary digits (bits) used to store data for each individual sample
+	- ‘sampwidth’ in python is always in bytes and 8 bits = 1 byte so 16 bits/sample ÷ 8 bits/byte = 2 bytes/sample
+
+bit rate (bits/sec, bps) = bit depth (bits) x sampling rate (Hz) x n channels
+	- bit depth = 16 bits   
+	- sampling rate = 240000 samples/sec (HF) or 2000 samples/sec (LF) (*samples/sec = Hz)
+	- n channels = 1 (mono) 
+	- LF bit rate = 16 x 2000 x 1 = 32000 bps and  HF bit rate = 16 x 240000 x 1 = 3840000 bps
+
+------------------------------------------------------------------------
+
+All sound in ocean is changes in water pressure over time (this is “analog” sound).
+
+Hydrophones (like the DMON2) sense physical pressure changes from underwater sounds and convert them to analog voltage. “Most hydrophones are made from a piezoelectric material. This material produces small electrical charges when exposed to pressure changes. The pressure changes associated with a sound wave can be detected by a piezoelectric element. Under the pressure of a sound wave, the piezoelectric element flexes and in return gives off electrical signals. These electrical signals can be recorded and later analyzed with computer programs.” (https://dosits.org/galleries/technology-gallery/basic-technology/hydrophonereceiver/#:~:text=Most%20hydrophones%20are%20made%20from,later%20analyzed%20with%20computer%20programs)
+
+The instantaneous pressure (P(t)) at the DMON2 at any given point is essentially:
+P(t) = Pbackground(t) + PWHALE CALLS(t) + Pglider(t) + Pboats/fish/rain/etc.(t)
+⮑ DMON2 converts that summed pressure signal (P(t)) into an analog voltage (V(t)):
+   V(t) ᦠ P(t)
+
+The DMON2 then samples this analog voltage in time increments specified by the sampling rate (aka frame rate, manually set for each hydrophone), quantizes it into a 16-bit integer, and stores that integer sequence.
+High frequency audio sampling rate = 240,000 Hz = DMON2 measures V(t) every 1/240000 sec
+Low-frequency audio sampling rate = 2000 Hz = DMON2 measures V(t) every 1/2000 sec
+
+“When we place acoustic monitoring devices in the field, the audio information captured is stored in a digital audio format. When a recording device takes samples, the information is stored in binary data. This binary data is known as ‘bits’, and as a result, bit depth refers to how much information can be stored. Higher bit depths result in a greater number of possible amplitude values that can be recorded within each sample.”
+
+* DMON2 may NOT originally record audio with mono channel configuration (since both LF and HF hydrophones running = multiple channels), BUT when d3read program unpacks flash chunks > .dtg files > .wav/.log/.xml/.err files, it processes audio such that the output .wav2 and .wav3 files are all mono channel. “The DMON2 application firmware saves data (e.g., audio, logs, configuration information) to flash memory in chunks as they are generated in real time, and d3host assembles those chunks into .dtg files that are then unpacked into .wav, .log, .xml and .err files by the d3read program.” (Mark Baumgartner & Jim Partan, 2025)

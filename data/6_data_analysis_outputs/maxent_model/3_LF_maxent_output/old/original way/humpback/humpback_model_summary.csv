@@ -1,0 +1,2 @@
+"species","n_occurrences","optimal_rm","optimal_fc","AICc","delta_AICc","AUC_train","AUC_diff"
+"humpback",252,2.5,"LQH",5385.09403565596,0,0.772550396825397,0.0269020857181767

@@ -1,0 +1,10 @@
+mission_name,n_channels,sample_rate_kHz,bit_depth,ID,UID,suborder,family,genus,species,common_name,start_datetime_UTC,end_datetime_UTC,av_datetime_UTC
+UVI2_Around_STX_20250306,1,240,16,52,52,Odontoceti,Ziphiidae,Ziphius,cavirostris,goose-beaked whale,2025-03-06 20:42:44+00:00,2025-03-06 20:43:44+00:00,2025-03-06 20:43:14+00:00
+UVI2_Around_STX_20250306,1,240,16,19,19,Odontoceti,Ziphiidae,Ziphius,cavirostris,goose-beaked whale,2025-03-07 00:47:44+00:00,2025-03-07 00:48:44+00:00,2025-03-07 00:48:14+00:00
+UVI2_Around_STX_20250306,1,240,16,20,20,Odontoceti,Ziphiidae,Ziphius,cavirostris,goose-beaked whale,2025-03-07 01:02:44+00:00,2025-03-07 01:03:44+00:00,2025-03-07 01:03:14+00:00
+UVI2_Around_STX_20250306,1,240,16,432,3429,Odontoceti,Ziphiidae,Ziphius,cavirostris,goose-beaked whale,2025-03-14 13:22:44+00:00,2025-03-14 13:23:44+00:00,2025-03-14 13:23:14+00:00
+UVI2_Around_STX_20250306,1,240,16,440,3437,Odontoceti,Ziphiidae,Ziphius,cavirostris,goose-beaked whale,2025-03-14 18:22:44+00:00,2025-03-14 18:23:44+00:00,2025-03-14 18:23:14+00:00
+UVI2_Around_STX_20250306,1,240,16,1267,14777,Odontoceti,Ziphiidae,Ziphius,cavirostris,goose-beaked whale,2025-03-14 18:27:44+00:00,2025-03-14 18:28:44+00:00,2025-03-14 18:28:14+00:00
+UVI2_Around_STX_20250306,1,240,16,1268,14778,Odontoceti,Ziphiidae,Ziphius,cavirostris,goose-beaked whale,2025-03-14 18:32:44+00:00,2025-03-14 18:33:44+00:00,2025-03-14 18:33:14+00:00
+UVI2_Around_STX_20250306,1,240,16,478,3908,Odontoceti,Ziphiidae,Ziphius,cavirostris,goose-beaked whale,2025-03-15 08:32:44+00:00,2025-03-15 08:33:44+00:00,2025-03-15 08:33:14+00:00
+UVI2_Around_STX_20250306,1,240,16,783,6065,Odontoceti,Ziphiidae,Ziphius,cavirostris,goose-beaked whale,2025-03-21 08:07:44+00:00,2025-03-21 08:08:44+00:00,2025-03-21 08:08:14+00:00

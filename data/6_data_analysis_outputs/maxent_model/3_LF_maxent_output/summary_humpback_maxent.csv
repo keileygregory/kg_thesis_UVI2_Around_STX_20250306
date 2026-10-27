@@ -1,0 +1,2 @@
+"Species","Config","N_occurrence","AUC_val","Contribution"
+"Humpback whale","LQH RM 3",244,"0.672","dist_shore (54.31%), bathymetry (37.12%), SST (4.22%)"

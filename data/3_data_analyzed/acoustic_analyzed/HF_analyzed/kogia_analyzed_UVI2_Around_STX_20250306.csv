@@ -1,0 +1,4 @@
+mission_name,n_channels,sample_rate_kHz,bit_depth,ID,UID,suborder,family,genus,species,common_name,start_datetime_UTC,end_datetime_UTC,av_datetime_UTC
+UVI2_Around_STX_20250306,1,240,16,1208,12296,Odontoceti,Kogiidae,Kogia,breviceps or sima,pygmy or dwarf sperm whale,2025-03-13 02:02:44+00:00,2025-03-13 02:03:44+00:00,2025-03-13 02:03:14+00:00
+UVI2_Around_STX_20250306,1,240,16,1209,12297,Odontoceti,Kogiidae,Kogia,breviceps or sima,pygmy or dwarf sperm whale,2025-03-13 02:17:44+00:00,2025-03-13 02:18:44+00:00,2025-03-13 02:18:14+00:00
+UVI2_Around_STX_20250306,1,240,16,1210,12298,Odontoceti,Kogiidae,Kogia,breviceps or sima,pygmy or dwarf sperm whale,2025-03-13 03:17:44+00:00,2025-03-13 03:18:44+00:00,2025-03-13 03:18:14+00:00

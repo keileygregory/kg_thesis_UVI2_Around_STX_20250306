@@ -1,0 +1,2 @@
+"Species","Config","N_occurrence","AUC_val","Contribution"
+"Minke whale","LQHP RM 3.5",186,"0.658","bathymetry (33.57%), SST (32.18%), dist_shore (20.35%)"

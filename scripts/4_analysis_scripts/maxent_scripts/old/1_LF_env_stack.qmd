@@ -1,0 +1,522 @@
+---
+title: "1_LF_env_stack"
+author: "Keiley Gregory"
+format: html
+editor: visual
+---
+
+> ***Sea surface temperature:** "Multi-scale Ultra-high Resolution (MUR) SST Analysis fv04.1, Global, 0.01°, 2002-present, Daily" (NASA JPL); resolution = 1 km/daily; EPSG:4326 (WGS 1984)*
+>
+> ***Sea surface salinity:** "Global Ocean Physics Analysis and Forecast Salinity, daily" (Copernicus Marine Service); resolution = 0.083° (\~9.2 km at equator)/daily; EPSG:4326 (WGS 1984)*
+>
+> ***Sea surface chlorophyll-a:** "Chlorophyll-a (gap-filled, DINEOF), NOAA S-NPP/NOAA-20 VIIRS and Copernicus Sentinel-3A OLCI merged, science quality, global 2 km, daily, 2018–present" (NOAA NESDIS STAR CoastWatch); resolution = 2 km/daily; EPSG:4326 (WGS 1984)*
+>
+> - *NOAA MSL12 multi-sensor DINEOF global 2 km gap-filled products: Chlorophyll-a, diffuse attenuation coefficient Kd(490), and suspended particulate matter (SPM) \[<https://coastwatch.noaa.gov/cwn/products/noaa-msl12-multi-sensor-dineof-global-2-km-gap-filled-products-chlorophyll-diffuse.html%5D> \>\>*
+> - *THREDDS \[<https://coastwatch.noaa.gov/thredds/socd/coastwatch/catalog_merged_dineof_products.html%5D> \>\>*
+> - *Global 2 km Daily Science Quality DINEOF, Merged VIIRS SNPP-N20 and OLCI S3A \[<https://coastwatch.noaa.gov/thredds/socd/coastwatch/catalog_blended_dineof_2km_global_chlora_daily.html%5D> \>\>*
+> - *2025 (Aggregated View) \[<https://coastwatch.noaa.gov/thredds/socd/coastwatch/catalog_blended_dineof_2km_global_chlora_daily.html?dataset=CoastWatch/Merged/DINEOF2km/chlora/DailyGlobal/WW00/2025%5D>*
+
+> **𖠺 Created by Keiley Gregory on March 17, 2026**
+>
+> **Last updated on July 17, 2026**
+
+*SEARCH "#‼️" TO FIND LINES WHERE FILE PATHS NEED TO BE CHANGED FOR CURRENT MISSION*
+
+```{r}
+library(rerddap)
+library(terra)
+library(sdmpredictors)
+library(corrplot)
+library(ncdf4)
+library(ggplot2)
+library(tidyterra)
+library(ncdf4)
+```
+
+# BATHYMETRY DATA (MY RASTER)
+
+Use bathymetry raster cropped to mission boundary (in ArcGIS) for extent of MaxEnt variable maps
+
+```{r}
+#‼️‼️ UPDATE FILE PATH FOR MISSION
+bathy_raster <- rast("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/rasters_shapefiles/merge_bathy_aroundstx2025.tif")
+
+#bathy_raster <- rast("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/rasters_shapefiles/GBC15a_bathy_aroundstx2025.tif")
+
+# tell terra to treat this value as NA
+bathy_raster[bathy_raster == -32768] <- NA
+
+# print extent lat/lon values of bathymetry raster (prints lat/lon even if in UTM)
+ext(project(bathy_raster, "EPSG:4326"))
+```
+
+# SET MISSION PARAMETERS
+
+Set mission map extent and time-span
+
+```{r}
+#‼️‼️ UPDATE BASED ON OUTPUT OF ABOVE LINE
+lon_min <- -66.0167521541008
+lon_max <- -62.9050377752297
+lat_min <- 16.6029114106496
+lat_max <- 18.7892888718758
+
+#‼️‼️ UPDATE BASED ON MISSION TIMEFRAME 
+date_start <- "2025-03-06T00:00:00"
+date_end   <- "2025-03-24T23:59:59"
+
+# time() returns POSIXct, so parse the mission bounds to POSIXct in UTC to match
+t_start <- as.POSIXct(date_start, format = "%Y-%m-%dT%H:%M:%S", tz = "UTC")
+t_end   <- as.POSIXct(date_end,   format = "%Y-%m-%dT%H:%M:%S", tz = "UTC")
+```
+
+Set directory for geo maxent files
+
+```{r}
+#‼️‼️ UPDATE DIRECTORY PATH FOR MISSION
+geo_path <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/LF_maxent_model/geo_maxent_files"
+```
+
+# SST, SSS, AND CHL-A DATA (PUBLIC SOURCES)
+
+### SEA SURFACE WATER TEMPERATURE (SST)
+
+Import SST data from NOAA CoastWatch ERDDAP
+
+```{r}
+sst_erd <- info("jplMURSST41", url = "https://coastwatch.pfeg.noaa.gov/erddap/")
+print(sst_erd)
+
+# pull SST data from loaded dataset
+sst_raw <- griddap(
+  sst_erd,
+  fields    = "analysed_sst",
+  time      = c(date_start, date_end),
+  latitude  = c(lat_min, lat_max),
+  longitude = c(lon_min, lon_max),
+  fmt       = "nc",
+  store     = disk(geo_path)
+)
+
+# rename downloaded .nc file (griddap names it by hash, so pull path from the returned object)
+sst_file <- file.path(geo_path, "sst_maxent_env_stack_mur_nasajpl.nc")
+file.rename(sst_raw$summary$filename, sst_file)
+```
+
+Load data from downloaded .nc file
+
+```{r}
+sst_file <- file.path(geo_path, "sst_maxent_env_stack_mur_nasajpl.nc")
+sst_nc <- rast(sst_file)
+print(sst_nc)
+```
+
+Read the documented valid range from the variable attributes
+
+```{r}
+sst_meta <- nc_open(sst_file)
+ncatt_get(sst_meta, "analysed_sst", "valid_min")$value
+ncatt_get(sst_meta, "analysed_sst", "valid_max")$value
+nc_close(sst_meta)
+```
+
+Clamp values to [valid]{.underline} range from metadata print-out above
+
+```{r}
+#‼️‼️ UPDATE VALUES BASED ON METADATA 
+sst_nc_clamp <- clamp(sst_nc, lower = -7, upper = 60, values = FALSE)
+sst_nc_clamp <- setMinMax(sst_nc_clamp)
+
+# verify range (should be ~25-30 °C for Caribbean)
+global(sst_nc_clamp, "range", na.rm = TRUE)
+```
+
+Calculate mean across mission period
+
+```{r}
+sst_mean <- mean(sst_nc_clamp, na.rm = TRUE)
+names(sst_mean) <- "SST"
+```
+
+Export SST maxent data as GeoTIFF + plot data and export as PNG
+
+```{r}
+writeRaster(sst_mean, file.path(geo_path, "sstmean_maxent_env_stack_mur_nasajpl.tif"), overwrite = TRUE)
+
+png(file.path(geo_path, "sstmean_maxent_env_stack_mur_nasajpl.png"), width = 10, height = 8, units = "in", res = 300)
+plot(sst_mean, main = "SST Mean (°C) - UVI2_Around_STX_20250306")
+dev.off()
+```
+
+### SEA SURFACE SALINITY (SSS)
+
+Import from Copernicus "GLOBAL_ANALYSISFORECAST_PHY_001_024" product
+
+```{r}
+system(paste(
+  "copernicusmarine subset",
+  "--dataset-id cmems_mod_glo_phy-so_anfc_0.083deg_P1D-m",
+  "--variable so",
+  "--start-datetime", date_start,
+  "--end-datetime", date_end,
+  "--minimum-longitude", lon_min,
+  "--maximum-longitude", lon_max,
+  "--minimum-latitude",  lat_min,
+  "--maximum-latitude",  lat_max,
+  "--minimum-depth 0",
+  # use 5 m because same depth used for sea surface variables in interpolation scripts
+  "--maximum-depth 5",
+  "--output-filename sss_maxent_env_stack_anfc_cmems.nc",
+  "--output-directory", shQuote(geo_path),
+  "--overwrite"
+))
+```
+
+Load data from downloaded .nc file
+
+```{r}
+sss_file <- file.path(geo_path, "sss_maxent_env_stack_anfc_cmems.nc")
+sss_nc <- rast(sss_file)
+print(sss_nc)
+```
+
+Read the documented valid range from the variable attributes
+
+```{r}
+sss_meta <- nc_open(sss_file)
+ncatt_get(sss_meta, "so", "valid_min")$value
+ncatt_get(sss_meta, "so", "valid_max")$value
+nc_close(sss_meta)
+```
+
+Clamp values to [valid]{.underline} range from metadata print-out above
+
+```{r}
+#‼️‼️ UPDATE VALUES BASED ON METADATA 
+sss_nc_clamp <- clamp(sss_nc, lower = 0, upper = 50, values = FALSE)
+sss_nc_clamp <- setMinMax(sss_nc_clamp)
+
+# verify range (should be ~35-38 PSU for Caribbean)
+global(sss_nc_clamp, "range", na.rm = TRUE)
+```
+
+Calculate mean across mission period
+
+```{r}
+sss_mean <- mean(sss_nc_clamp, na.rm = TRUE)
+names(sss_mean) <- "SSS"
+```
+
+Export SSS maxent data as GeoTIFF + plot data and export as PNG
+
+```{r}
+writeRaster(sss_mean, file.path(geo_path, "sssmean_maxent_env_stack_anfc_cmems.tif"), overwrite = TRUE)
+
+png(file.path(geo_path, "sssmean_maxent_env_stack_anfc_cmems.png"), width = 10, height = 8, units = "in", res = 300)
+plot(sss_mean, main = "SSS Mean (PSU) - UVI2_Around_STX_20250306")
+dev.off()
+```
+
+### SEA SURFACE CHLOROPHYLL A (CHL-A)
+
+> *ERDDAP no longer serves noaacwNPPN20S3ASCIDINEOF2kmDaily dataset, so pull the same product from CoastWatch THREDDS aggregated view instead (<https://www.star.nesdis.noaa.gov/thredds/socd/coastwatch/catalog_blended_dineof_2km_global_chlora_daily.html)>*
+
+```{r}
+#‼️‼️ UPDATE YEAR IN URL TO MATCH MISSION YEAR
+chl_ncss_base <- "https://coastwatch.noaa.gov/thredds/ncss/grid/CoastWatch/Merged/DINEOF2km/chlora/DailyGlobal/WW00/2025"
+
+chl_ncss_url <- sprintf(
+  "%s?var=chlor_a&north=%f&south=%f&east=%f&west=%f&time_start=%s&time_end=%s&accept=netcdf4",
+  chl_ncss_base, lat_max, lat_min, lon_max, lon_min,
+  format(t_start, "%Y-%m-%dT%H:%M:%SZ"), format(t_end, "%Y-%m-%dT%H:%M:%SZ")
+)
+
+chl_file <- file.path(geo_path, "chla_maxent_env_stack_dineof2km.nc")
+download.file(chl_ncss_url, destfile = chl_file, mode = "wb")
+chl_nc <- rast(chl_file)
+print(chl_nc)
+```
+
+Read the documented valid range from the variable attributes
+
+```{r}
+chl_dodsc_url <- "https://coastwatch.noaa.gov/thredds/dodsC/CoastWatch/Merged/DINEOF2km/chlora/DailyGlobal/WW00/2025"
+chl_meta <- nc_open(chl_dodsc_url)
+ncatt_get(chl_meta, "chlor_a", "valid_min")$value
+ncatt_get(chl_meta, "chlor_a", "valid_max")$value
+nc_close(chl_meta)
+```
+
+Clamp values to [valid]{.underline} range from metadata print-out above
+
+```{r}
+#‼️‼️ UPDATE VALUES BASED ON METADATA 
+chl_nc_clamp <- clamp(chl_nc, lower = 0.001, upper = 100, values = FALSE)
+chl_nc_clamp <- setMinMax(chl_nc_clamp)
+
+# verify range
+global(chl_nc_clamp, "range", na.rm = TRUE)
+```
+
+Calculate mean across mission period
+
+```{r}
+chl_mean <- mean(chl_nc_clamp, na.rm = TRUE)
+names(chl_mean) <- "Chl"
+```
+
+Log-transform for habitat model since Chl-a is typically log-normally distributed *(fixes color scale being stretched by a few high nearshore pixels)*
+
+```{r}
+chl_mean_log <- log(chl_mean)
+names(chl_mean_log) <- "Chl_log"
+```
+
+Export Chl-a maxent data as GeoTIFF + plot data and export as PNG
+
+```{r}
+writeRaster(chl_mean_log, file.path(geo_path, "chlameanlog_maxent_env_stack_dineof2km.tif"), overwrite = TRUE)
+
+png(file.path(geo_path, "chlameanlog_maxent_env_stack_dineof2km.png"), width = 10, height = 8, units = "in", res = 300)
+plot(chl_mean_log, main = "log(Chl-a) (mg m^-3) - UVI2_Around_STX_20250306")
+dev.off()
+```
+
+# RESAMPLE AND REPROJECT DATA
+
+Reference grid from bathy resample target = 1km in UTM units *(creates empty template raster that matches spatial extent and CRS of `bathy_raster` -BUT- with fixed resolution of 1000 m × 1000 m)*
+
+```{r}
+ref_grid <- rast(ext = ext(bathy_raster), res = 1000, crs = crs(bathy_raster))
+```
+
+Warp `bathy_raster` onto 1 km grid *(\***bilinear interpolation** estimates each new cell depth value as weighted average of four nearest source cells)*
+
+```{r}
+bathy_1km <- resample(bathy_raster, ref_grid, method = "bilinear")
+names(bathy_1km) <- "bathymetry"
+```
+
+Create ocean mask to remove land areas
+
+```{r}
+ocean_mask  <- !is.na(bathy_1km)
+```
+
+### CALCULATE SLOPE ON UTM 1 KM GRID
+
+Calculate slope onto 1 km grid (from bathymetry raster)
+
+```{r}
+slope_1km <- terrain(bathy_1km, v = "slope", unit = "degrees")
+names(slope_1km) <- "slope"
+```
+
+Gap-fill SST NA cells (uses iterative focal mean with 3x3 window, repeats until all ocean cells are filled)
+
+```{r}
+cat("Slope NA cells before gap-fill:", global(is.na(slope_1km) & ocean_mask, "sum")[[1]], "\n")
+slope_filled <- slope_1km
+max_iter     <- 50
+for (i in seq_len(max_iter)) {
+  na_count <- global(is.na(slope_filled) & ocean_mask, "sum")[[1]]
+  if (na_count == 0) break
+  slope_filled <- focal(slope_filled, w = 3, fun = "mean", na.policy = "only", na.rm = TRUE)
+  cat("  Gap-fill iteration", i, "— remaining NA ocean cells:",
+      global(is.na(slope_filled) & ocean_mask, "sum")[[1]], "\n")
+}
+
+# re-apply ocean mask so land cells stay NA
+slope_filled <- mask(slope_filled, bathy_1km)
+names(slope_filled) <- "slope"
+cat("Slope NA cells after gap-fill:", global(is.na(slope_filled) & ocean_mask, "sum")[[1]], "\n")
+slope_1km <- slope_filled
+```
+
+### REPROJECT SST TO UTM 1 KM + APPLY OCEAN MASK
+
+```{r}
+sst <- rast(file.path(geo_path, "sstmean_maxent_env_stack_mur_nasajpl.tif"))
+sst_1km <- project(sst, ref_grid, method = "bilinear")
+names(sst_1km) <- "SST"
+```
+
+Gap-fill SST NA cells (uses iterative focal mean with 3x3 window, repeats until all ocean cells are filled)
+
+```{r}
+cat("SST NA cells before gap-fill:", global(is.na(sst_1km) & ocean_mask, "sum")[[1]], "\n")
+sst_1km <- mask(sst_1km, bathy_1km)
+names(sst_1km) <- "SST"
+
+#sst_filled <- sst_1km
+#max_iter    <- 50
+#for (i in seq_len(max_iter)) {
+#  na_count <- global(is.na(sst_filled) & ocean_mask, "sum")[[1]]
+#  if (na_count == 0) break
+#  sst_filled <- focal(sst_filled, w = 3, fun = "mean", na.policy = "only", na.rm = TRUE)
+#  cat("  Gap-fill iteration", i, "— remaining NA ocean cells:", 
+#      global(is.na(sst_filled) & ocean_mask, "sum")[[1]], "\n")
+
+# re-apply ocean mask to SSS so land cells stay NA
+#sst_filled <- mask(sst_filled, bathy_1km)
+#names(sst_filled) <- "SST"
+#cat("SST NA cells after gap-fill:", global(is.na(sst_filled) & ocean_mask, "sum")[[1]], "\n")
+#sst_1km <- sst_filled
+```
+
+### REPROJECT SSS TO UTM 1 KM + APPLY OCEAN MASK
+
+```{r}
+sss <- rast(file.path(geo_path, "sssmean_maxent_env_stack_anfc_cmems.tif"))
+sss_1km <- project(sss, ref_grid, method = "bilinear")
+names(sss_1km) <- "SSS"
+```
+
+Gap-fill SST NA cells (uses iterative focal mean with 3x3 window, repeats until all ocean cells are filled)
+
+```{r}
+cat("SSS NA cells before gap-fill:", global(is.na(sss_1km) & ocean_mask, "sum")[[1]], "\n")
+sss_filled <- sss_1km
+max_iter    <- 50
+for (i in seq_len(max_iter)) {
+  na_count <- global(is.na(sss_filled) & ocean_mask, "sum")[[1]]
+  if (na_count == 0) break
+  sss_filled <- focal(sss_filled, w = 3, fun = "mean", na.policy = "only", na.rm = TRUE)
+  cat("  Gap-fill iteration", i, "— remaining NA ocean cells:", 
+      global(is.na(sss_filled) & ocean_mask, "sum")[[1]], "\n")
+}
+
+# re-apply ocean mask to SSS so land cells stay NA
+sss_filled <- mask(sss_filled, bathy_1km)
+names(sss_filled) <- "SSS"
+cat("SSS NA cells after gap-fill:", global(is.na(sss_filled) & ocean_mask, "sum")[[1]], "\n")
+sss_1km <- sss_filled
+```
+
+### REPROJECT CHL-A TO UTM 1 KM + APPLY OCEAN MASK
+
+```{r}
+chl <- rast(file.path(geo_path, "chlameanlog_maxent_env_stack_dineof2km.tif"))
+chl_1km <- project(chl, ref_grid, method = "bilinear")
+names(chl_1km) <- "Chl_log"
+```
+
+Gap-fill SST NA cells (uses iterative focal mean with 3x3 window, repeats until all ocean cells are filled)
+
+```{r}
+cat("Chl-a NA cells before gap-fill:", global(is.na(chl_1km) & ocean_mask, "sum")[[1]], "\n")
+chl_filled <- chl_1km
+max_iter    <- 50
+for (i in seq_len(max_iter)) {
+  na_count <- global(is.na(chl_filled) & ocean_mask, "sum")[[1]]
+  if (na_count == 0) break
+  chl_filled <- focal(chl_filled, w = 3, fun = "mean", na.policy = "only", na.rm = TRUE)
+  cat("  Gap-fill iteration", i, "— remaining NA ocean cells:", 
+      global(is.na(chl_filled) & ocean_mask, "sum")[[1]], "\n")
+}
+
+# re-apply ocean mask to Chl-a so land cells stay NA
+chl_filled <- mask(chl_filled, bathy_1km)
+names(chl_filled) <- "Chl_log"
+cat("Chl-a NA cells after gap-fill:", global(is.na(chl_filled) & ocean_mask, "sum")[[1]], "\n")
+chl_1km <- chl_filled
+```
+
+*(\*NOTE: distance to nearest shoreline does NOT need to be resampled/reprojected)*
+
+# SHORELINE DATA (MY SHAPEFILE)
+
+Load shoreline data from CARIBBEAN_SHORELINES shapefile
+
+***\*Directory [must]{.underline} also have .dbf, .prj, and .shx sidecar files in same folder as .shp file***
+
+```{r}
+#‼️‼️ UPDATE FILE PATH FOR MISSION
+shore <- vect("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/rasters_shapefiles/caribbean_shorelines_arcgis_shapefile/CARIBBEAN_SHORELINES.shp")
+
+# crop to map extent
+shore_crop <- project(shore, crs(bathy_1km))
+```
+
+Compute distance from each raster cell to nearest shoreline (meters)
+
+```{r}
+dist_shore <- distance(bathy_1km, shore_crop)
+dist_shore <- mask(dist_shore, bathy_1km)
+names(dist_shore) <- "dist_shore"
+```
+
+Export shoreline maxent data as GeoTIFF + plot data and export as PNG
+
+```{r}
+writeRaster(dist_shore, file.path(geo_path, "shoredist_maxent_env_stack.tif"), overwrite = TRUE)
+
+png(file.path(geo_path, "shoredist_maxent_env_stack.png"), width = 10, height = 8, units = "in", res = 300)
+plot(dist_shore, main = "Distance to Nearest Shoreline (m) - UVI2_Around_STX_20250306")
+dev.off()
+```
+
+# STACK VARIABLES
+
+```{r}
+env_stack <- c(bathy_1km, slope_1km, dist_shore, sst_1km, sss_1km, chl_1km)
+print(env_stack)
+
+# count cells at the fill value
+global(bathy_raster == -32768, "sum", na.rm = TRUE)
+```
+
+Export individual layers
+
+```{r}
+writeRaster(bathy_1km,   file.path(geo_path, "bathy_1km_UTM20N.tif"),     overwrite = TRUE)
+writeRaster(slope_1km,   file.path(geo_path, "slope_1km_UTM20N.tif"),     overwrite = TRUE)
+writeRaster(dist_shore,  file.path(geo_path, "distshore_1km_UTM20N.tif"), overwrite = TRUE)
+writeRaster(sst_1km,     file.path(geo_path, "sst_1km_UTM20N.tif"),       overwrite = TRUE)
+writeRaster(sss_1km,     file.path(geo_path, "sss_1km_UTM20N.tif"),       overwrite = TRUE)
+writeRaster(chl_1km,     file.path(geo_path, "chllog_1km_UTM20N.tif"),    overwrite = TRUE)
+```
+
+Plot stack and export as PNG
+
+```{r}
+png("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/LF_maxent_model/1_env_stack_output/maxent_env_stack_1km_UTM20N.png", width = 10, height = 8, units = "in", res = 300)
+plot(env_stack)
+dev.off()
+```
+
+# CORRELATIONS
+
+Extract values from stack ***(\*ocean pixels only, no NA)***
+
+```{r}
+env_df <- as.data.frame(env_stack, na.rm = TRUE)
+head(env_df)
+nrow(env_df)
+```
+
+Correlation matrix
+
+```{r}
+cor_matrix <- cor(env_df, use = "pairwise.complete.obs", method = "pearson")
+round(cor_matrix, 3)
+```
+
+Visualize correlation matrix and export as PNG
+
+```{r}
+corrplot(cor_matrix, method = "number", type = "upper", 
+         tl.col = "black", tl.cex = 0.9)
+
+png("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/LF_maxent_model/1_env_stack_output/correlation_matrix_maxent_env_stack.png", width = 8, height = 8, units = "in", res = 300)
+corrplot(cor_matrix, method = "number", type = "upper", tl.col = "black", tl.cex = 0.9)
+dev.off()
+```
+
+Export final stack
+
+```{r}
+writeRaster(env_stack, "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/LF_maxent_model/1_env_stack_output/maxent_env_stack_1km_UTM20N.tif", overwrite = TRUE)
+```
+
+> ***⚠️ Correlations to flag = \|r\| near 0.7***

@@ -1,0 +1,438 @@
+---
+title: "humpback_LF_sumtab_denplot"
+author: "Keiley Gregory"
+format: html
+editor: visual
+---
+
+> *This script compares oceanographic conditions at humpback detection points against LF mission background points for a mission; it exports separate humpback and background descriptive summary statistics tables (mean, SEM, SD, min, max) for ten environmental variables as CSV files, as well as a a multi-panel figure overlaying detection vs. background density distributions for each variable as a PNG file*
+>
+> - *Input .csv files directory: /Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/LF_gis_data*
+> - *Output summary table .csv files directory: /Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/summary_descriptstats_tables; Output density plot .png file directory: /Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/figures/envirovars_density_plots*
+
+> **𖠺 Created by Keiley Gregory on March 9, 2026**
+>
+> **Last updated on October 1, 2026**
+
+*SEARCH "#‼️" TO FIND LINES WHERE FILE PATHS NEED TO BE CHANGED FOR CURRENT MISSION*
+
+```{r}
+library(tidyverse)
+library(ggridges)  # for ridge plots
+library(patchwork) # optional, for combining plots
+library(knitr)
+library(kableExtra) # optional but makes it prettier
+```
+
+Import humpback data and LF background data
+
+```{r}
+#‼️‼️ UPDATE FILE PATH FOR MISSION
+spc <- read_csv("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/LF_gis_data/tidy_humpback_points_p26920.csv")
+
+#‼️‼️ UPDATE FILE PATH FOR MISSION
+bck <- read_csv("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/LF_gis_data/tidy_LF_background_points_p26920.csv")
+```
+
+# SUMMARY TABLES
+
+### [**DETECTIONS**]{.underline} **SUMMARY TABLE**
+
+```{r}
+spc_summary <- spc %>%
+  select("glider_depth_m", 
+         "water_temperature_C",
+         "sea_surface_water_temperature_C",
+         "salinity_PSU",
+         "sea_surface_salinity_PSU",
+         "oxygen_concentration_μmol_L", 
+         "sea_surface_oxygen_concentration_μmol_L",
+         "bathymetric_depth_m",
+         "bathymetric_slope_deg",
+         "distance_to_shore_m"
+  ) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to  = "Oceanographic_Variable",
+    values_to = "Value"
+  ) %>%
+  group_by(Oceanographic_Variable) %>%
+  summarise(
+    n     = sum(!is.na(Value)),
+    Mean  = mean(Value, na.rm = TRUE),
+    SEM   = sd(Value, na.rm = TRUE) / sqrt(n),
+    SD    = sd(Value, na.rm = TRUE),
+    Min   = min(Value, na.rm = TRUE),
+    Max   = max(Value, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    Oceanographic_Variable = case_when(
+      Oceanographic_Variable == "glider_depth_m" ~ "Glider Depth (m)",
+      Oceanographic_Variable == "water_temperature_C" ~ "Water Temperature (°C)",
+      Oceanographic_Variable == "sea_surface_water_temperature_C" ~ "Sea Surface Water Temperature (°C)",
+      Oceanographic_Variable == "salinity_PSU" ~ "Salinity (PSU)",
+      Oceanographic_Variable == "sea_surface_salinity_PSU" ~ "Sea Surface Salinity (PSU)",
+      Oceanographic_Variable == "oxygen_concentration_μmol_L" ~ "Dissolved Oxygen Concentration (µmol/L)",
+      Oceanographic_Variable == "sea_surface_oxygen_concentration_μmol_L" ~ "Sea Surface Dissolved Oxygen Concentration (µmol/L)",
+      Oceanographic_Variable == "bathymetric_depth_m" ~ "Bathymetric Depth (m)",
+      Oceanographic_Variable == "bathymetric_slope_deg" ~ "Bathymetric Slope (°)",
+      Oceanographic_Variable == "distance_to_shore_m" ~ "Distance to Nearest Shoreline (m)",
+      TRUE ~ Oceanographic_Variable
+    )
+  )
+```
+
+Reorder rows for table
+
+```{r}
+spc_summary <- spc_summary %>%
+  mutate(
+    Oceanographic_Variable = factor(Oceanographic_Variable,
+                                    levels = c(
+                                      "Glider Depth (m)",
+                                      "Water Temperature (°C)",
+                                      "Sea Surface Water Temperature (°C)",
+                                      "Salinity (PSU)",
+                                      "Sea Surface Salinity (PSU)",
+                                      "Dissolved Oxygen Concentration (µmol/L)",
+                                      "Sea Surface Dissolved Oxygen Concentration (µmol/L)",
+                                      "Bathymetric Depth (m)",
+                                      "Bathymetric Slope (°)",
+                                      "Distance to Nearest Shoreline (m)"
+                                    )
+    )
+  ) %>%
+  arrange(Oceanographic_Variable)
+```
+
+Export detections summary table as CSV
+
+```{r}
+#‼️‼️ UPDATE FILE PATH FOR MISSION
+write_csv(spc_summary, "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/summary_descriptstats_tables/humpback_summarytable.csv")
+```
+
+### [**BACKGROUND**]{.underline} **SUMMARY TABLE**
+
+```{r}
+bck_summary <- bck %>%
+  select("glider_depth_m",
+         "water_temperature_C",
+         "sea_surface_water_temperature_C",
+         "salinity_PSU",
+         "sea_surface_salinity_PSU",
+         "oxygen_concentration_μmol_L",
+         "sea_surface_oxygen_concentration_μmol_L",
+         "bathymetric_depth_m",
+         "bathymetric_slope_deg",
+         "distance_to_shore_m"
+  ) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to  = "Oceanographic_Variable",
+    values_to = "Value"
+  ) %>%
+  group_by(Oceanographic_Variable) %>%
+  summarise(
+    n     = sum(!is.na(Value)),
+    Mean  = mean(Value, na.rm = TRUE),
+    SEM   = sd(Value, na.rm = TRUE) / sqrt(n),
+    SD    = sd(Value, na.rm = TRUE),
+    Min   = min(Value, na.rm = TRUE),
+    Max   = max(Value, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    Oceanographic_Variable = case_when(
+      Oceanographic_Variable == "glider_depth_m" ~ "Glider Depth (m)",
+      Oceanographic_Variable == "water_temperature_C" ~ "Water Temperature (°C)",
+      Oceanographic_Variable == "sea_surface_water_temperature_C" ~ "Sea Surface Water Temperature (°C)",
+      Oceanographic_Variable == "salinity_PSU" ~ "Salinity (PSU)",
+      Oceanographic_Variable == "sea_surface_salinity_PSU" ~ "Sea Surface Salinity (PSU)",
+      Oceanographic_Variable == "oxygen_concentration_μmol_L" ~ "Dissolved Oxygen Concentration (µmol/L)",
+      Oceanographic_Variable == "sea_surface_oxygen_concentration_μmol_L" ~ "Sea Surface Dissolved Oxygen Concentration (µmol/L)",
+      Oceanographic_Variable == "bathymetric_depth_m" ~ "Bathymetric Depth (m)",
+      Oceanographic_Variable == "bathymetric_slope_deg" ~ "Bathymetric Slope (°)",
+      Oceanographic_Variable == "distance_to_shore_m" ~ "Distance to Nearest Shoreline (m)",
+      TRUE ~ Oceanographic_Variable
+    )
+  )
+```
+
+Reorder rows for table
+
+```{r}
+bck_summary <- bck_summary %>%
+  mutate(
+    Oceanographic_Variable = factor(Oceanographic_Variable,
+                                    levels = c(
+                                      "Glider Depth (m)",
+                                      "Water Temperature (°C)",
+                                      "Sea Surface Water Temperature (°C)",
+                                      "Salinity (PSU)",
+                                      "Sea Surface Salinity (PSU)",
+                                      "Dissolved Oxygen Concentration (µmol/L)",
+                                      "Sea Surface Dissolved Oxygen Concentration (µmol/L)",
+                                      "Bathymetric Depth (m)",
+                                      "Bathymetric Slope (°)",
+                                      "Distance to Nearest Shoreline (m)"
+                                    )
+    )
+  ) %>%
+  arrange(Oceanographic_Variable)
+```
+
+Export background summary table as CSV
+
+```{r}
+#‼️‼️ UPDATE FILE PATH FOR MISSION
+write_csv(bck_summary, "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/summary_descriptstats_tables/LF_background_summarytable.csv")
+```
+
+# PREPARATION FOR PLOTTING
+
+Create custom color scheme for oceanographic variables
+
+```{r}
+custom_colors <- c(
+  glider_depth_m = "#ffc803",
+  water_temperature_C = "#ff8721",
+  salinity_PSU = "#ff26d7",
+  oxygen_concentration_μmol_L = "#e88aff",
+  sea_surface_water_temperature_C = "#8130ff",
+  sea_surface_salinity_PSU = "#1c46ff",
+  sea_surface_oxygen_concentration_μmol_L = "#75afff",
+  bathymetric_depth_m = "#03bcff",
+  bathymetric_slope_deg = "#09ebd0",
+  distance_to_shore_m = "#00b846"
+)
+```
+
+Create vector of clean variable names
+
+```{r}
+clean_var_names <- c(
+  glider_depth_m = "Glider Depth (m)",
+  water_temperature_C = "Water Temperature (°C)",
+  sea_surface_water_temperature_C = "Sea Surface Water Temperature (°C)",
+  salinity_PSU = "Salinity (PSU)",
+  sea_surface_salinity_PSU = "Sea Surface Salinity (PSU)",
+  oxygen_concentration_μmol_L = "Dissolved Oxygen Concentration (µmol/L)",
+  sea_surface_oxygen_concentration_μmol_L = "Sea Surface Dissolved Oxygen Concentration (µmol/L)",
+  bathymetric_depth_m = "Bathymetric Depth (m)",
+  bathymetric_slope_deg = "Bathymetric Slope (°)",
+  distance_to_shore_m = "Distance to Nearest Shoreline (m)"
+)
+```
+
+Vector of environmental variables to summarize for table *(\*[exclude]{.underline} glider depth because not really an environmental variable)*
+
+```{r}
+env_vars <- c(
+  "glider_depth_m",
+  "water_temperature_C",
+  "sea_surface_water_temperature_C",
+  "salinity_PSU",
+  "sea_surface_salinity_PSU",
+  "oxygen_concentration_μmol_L",
+  "sea_surface_oxygen_concentration_μmol_L",
+  "bathymetric_depth_m",
+  "bathymetric_slope_deg",
+  "distance_to_shore_m"
+)
+```
+
+### PIVOT DATA LONGER
+
+Pivot longer: Humpback detection data
+
+```{r}
+spc_long <- spc %>%
+  select(all_of(env_vars)) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "Oceanographic_Variable",
+    values_to = "Value"
+  ) %>%
+  mutate(
+    Oceanographic_Variable = factor(
+      Oceanographic_Variable,
+      levels = c(
+        "glider_depth_m",
+        "water_temperature_C",
+        "sea_surface_water_temperature_C",
+        "salinity_PSU",
+        "sea_surface_salinity_PSU",
+        "oxygen_concentration_μmol_L",
+        "sea_surface_oxygen_concentration_μmol_L",
+        "bathymetric_depth_m",
+        "bathymetric_slope_deg",
+        "distance_to_shore_m"
+      )
+    )
+  ) %>%
+  filter(!is.na(Value)) # drop non-finite values
+```
+
+Pivot longer: Background data
+
+```{r}
+bck_long <- bck %>%
+  select(all_of(env_vars)) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "Oceanographic_Variable",
+    values_to = "Value"
+  ) %>%
+  mutate(
+    Oceanographic_Variable = factor(
+      Oceanographic_Variable,
+      levels = c(
+        "glider_depth_m",
+        "water_temperature_C",
+        "sea_surface_water_temperature_C",
+        "salinity_PSU",
+        "sea_surface_salinity_PSU",
+        "oxygen_concentration_μmol_L",
+        "sea_surface_oxygen_concentration_μmol_L",
+        "bathymetric_depth_m",
+        "bathymetric_slope_deg",
+        "distance_to_shore_m"
+      )
+    )
+  ) %>%
+  filter(!is.na(Value)) # drop non-finite values
+```
+
+# DENSITY PLOTS
+
+**Function to make one density plot for one variable**
+
+```{r}
+make_density_plot <- function(var_name) {
+  ggplot() +
+    geom_density(
+      data = bck_long %>% filter(Oceanographic_Variable == var_name),
+      aes(x = Value, y = after_stat(density)),
+      fill = "grey45",
+      color = "grey35",
+      alpha = 0.3,
+      linewidth = 0.5
+    ) +
+    geom_density(
+      data = spc_long %>% filter(Oceanographic_Variable == var_name),
+      aes(x = Value, y = after_stat(density)),
+      fill = unname(custom_colors[var_name]),
+      color = unname(custom_colors[var_name]),
+      alpha = 0.35,
+      linewidth = 0.75
+    ) +
+    labs(
+      title = stringr::str_wrap(clean_var_names[var_name], width = 35),
+      x = NULL,
+      y = "Density"
+    ) +
+    theme_minimal(base_size = 7) +
+    theme(
+      text = element_text(color = "black"),
+      plot.title = element_text(
+        color = "black",
+        face = "bold",
+        size = 13,
+        hjust = 0.5
+      ),
+      axis.text = element_text(color = "black", size = 7),
+      axis.title = element_text(color = "black", face = "bold"),
+      axis.ticks.x = element_blank(),
+      panel.grid.minor = element_blank(),
+      legend.position = "none"
+    )
+}
+```
+
+One small custom legend for whole figure
+
+```{r}
+legend_stripes <- tibble(
+  x = seq(0.555, 0.635, length.out = 10),
+  y = 0.5,
+  fill = unname(custom_colors)
+)
+
+legend_plot <- ggplot() +
+  # small grey box
+  annotate(
+    "rect",
+    xmin = 0.10, xmax = 0.14,
+    ymin = 0.30, ymax = 0.70,
+    fill = "grey45", color = "grey35", linewidth = 0.35
+  ) +
+  # small multicolor box made of stripes
+  geom_tile(
+    data = legend_stripes,
+    aes(x = x, y = y, fill = fill),
+    width = 0.008, height = 0.40,
+    inherit.aes = FALSE
+  ) +
+  scale_fill_identity() +
+  # bold labels
+  annotate(
+    "text",
+    x = 0.145, y = 0.5,
+    label = "Mission background conditions (low-frequency audio)",
+    hjust = 0, vjust = 0.5, size = 3, fontface = "bold"
+  ) +
+  annotate(
+    "text",
+    x = 0.645, y = 0.5,
+    label = "Humpback whale detection conditions",
+    hjust = 0, vjust = 0.5, size = 3, fontface = "bold"
+  ) +
+  xlim(0, 1) +
+  ylim(0, 1) +
+  theme_void()
+```
+
+**Make plot for each variable (call function)**
+
+```{r}
+p_glider_depth <- make_density_plot("glider_depth_m")
+p_temp         <- make_density_plot("water_temperature_C")
+p_sst          <- make_density_plot("sea_surface_water_temperature_C")
+p_sal          <- make_density_plot("salinity_PSU")
+p_sss          <- make_density_plot("sea_surface_salinity_PSU")
+p_do           <- make_density_plot("oxygen_concentration_μmol_L")
+p_ssdo         <- make_density_plot("sea_surface_oxygen_concentration_μmol_L")
+p_bathy_depth  <- make_density_plot("bathymetric_depth_m")
+p_bathy_slope  <- make_density_plot("bathymetric_slope_deg")
+p_shore        <- make_density_plot("distance_to_shore_m")
+```
+
+Multi-panel layout
+
+```{r}
+density_panels <-
+  plot_spacer() + p_glider_depth + plot_spacer() +
+  p_temp + p_sal + p_do +
+  p_sst + p_sss + p_ssdo +
+  p_bathy_depth + p_bathy_slope + p_shore +
+  plot_layout(ncol = 3)
+```
+
+Final figure with [one]{.underline} custom legend + print plot
+
+```{r}
+density_STACK <- density_panels / legend_plot +
+  plot_layout(heights = c(18, 1.2))
+
+# print plot
+density_STACK
+```
+
+Export multi-panel density plot as PNG
+
+```{r}
+#‼️‼️ UPDATE FILE PATH FOR MISSION
+ggsave("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/figures/envirovars_density_plots/humpback_LF_envirovars_denplot_UVI2_Around_STX_20250306.png", density_STACK, width = 12, height = 9, dpi = 1000)
+```

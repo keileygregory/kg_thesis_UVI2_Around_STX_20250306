@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><PAMGUARD>
+    <VERSIONINFO Created="6 April 2026, 16:20:54 UTC" MinAspVersion="2.35.23" Release="CORE" Version="2.02.17"/>
+    <MODULES>
+        <MODULE>
+            <BinFilePrefix>Data_Acquisition_Sound_Acquisition_Raw_Data_</BinFilePrefix>
+            <lastUID>3126000</lastUID>
+        </MODULE>
+        <MODULE>
+            <BinFilePrefix>Decimator_Decimator_Raw_Data_</BinFilePrefix>
+            <lastUID>3125999</lastUID>
+        </MODULE>
+        <MODULE>
+            <BinFilePrefix>LTSA_Long_Term_Spectral_Average_LTSA_</BinFilePrefix>
+            <lastUID>15629000010</lastUID>
+        </MODULE>
+        <MODULE>
+            <BinFilePrefix>Click_Detector_Click_Detector_Clicks_</BinFilePrefix>
+            <lastUID>15629000218</lastUID>
+        </MODULE>
+        <MODULE>
+            <BinFilePrefix>WhistlesMoans_Whistle_and_Moan_Detector_Contours_</BinFilePrefix>
+            <lastUID>15629000000</lastUID>
+        </MODULE>
+    </MODULES>
+</PAMGUARD>

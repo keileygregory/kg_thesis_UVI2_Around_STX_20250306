@@ -1,0 +1,216 @@
+# ⓵ RAW GLIDER (AND GLIDER SENSORS) DATA
+
+## ⓵ⓐ ACOUSTIC ANALYSIS
+
+### *Raw audio file conversions*
+
+<details>
+<summary>Convert raw .wav2 and .wav3 audio files from DMON2 to .wav format.</summary>
+<br>
+  
+  - <ins>*C:/Users/keileygregory/THESIS_REPOSITORIES/AUDIO_FILES/convert_wav<sup>*</sup>*</ins> <sub><sup>Local folders for temporary storage of .wav2/.wav3 files while they are being converted to .wav format (location of .wav2/.wav3 files must match file paths in .py scripts).</sub></sup>
+  - [convert_wav2.py](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/scripts/acoustic_analysis/audiofile_conversions/convert_wav2.py) <sub><sup>Code to convert .wav2 (low-frequency) audio files located in local <ins>*convert_wav2*</ins> folder to .wav format (format required for processing/detector software used in LFDCS/MinkeNet/PAMGaurd/etc.).</sub></sup>
+  - [convert_wav3.py](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/scripts/acoustic_analysis/audiofile_conversions/convert_wav3.py) <sub><sup>Code to convert .wav3 (high-frequency) audio files located in local <ins>*convert_wav3*</ins> folder to .wav format (format required for processing/detector software used in LFDCS/MinkeNet/PAMGaurd/etc.).</sub></sup>
+  - <ins>*C:/Users/keileygregory/THESIS_REPOSITORIES/AUDIO_FILES/UVI2_Around_STX_20250306/wav<sup>*</sup>*</ins> <sub><sup>Local folders for storage of raw low- and high-frequency audio .wav files (acoustic raw data is stored locally due to large file size).</sub></sup>
+<br>
+</details>
+
+<details>
+<summary>Create low- and high-frequency duty cycle CSVs from DMON2 .log files.</summary>
+<br>
+  
+  - <ins>*C:/Users/keileygregory/THESIS_REPOSITORIES/AUDIO_FILES/convert_dmon_log*</ins> <sub><sup>Local folder for temporary storage of .log files while they are being used to create duty cycle CSVs (location of .log files must match file path in .py script).</sub></sup>
+  - [convert_dmonlog_dutycyclecsv.py](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/scripts/acoustic_analysis/audiofile_conversions/convert_dmonlog_dutycyclecsv.py) <sub><sup>Code to create low- and high-frequency duty cycle CSV files for a single mission using DMON2 .log files located in local <ins>*convert_dmon_log*</ins> folder.</sub></sup>
+  - [UVI2_AroundSTX_20250306_LowFreq.csv](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/data/data_raw/acoustic_raw/log/UVI2_AroundSTX_20250306_LowFreq.csv) <sub><sup>Duty cycle CSV of low-frequency acoustic data for mission.</sub></sup>
+  - [UVI2_AroundSTX_20250306_HighFreq.csv](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/data/data_raw/acoustic_raw/log/UVI2_AroundSTX_20250306_HighFreq.csv) <sub><sup>Duty cycle CSV of high-frequency acoustic data for mission.</sub></sup>
+  - [log](https://github.com/keileygregory/UVI2_Around_STX_20250306/tree/main/data/data_raw/acoustic_raw/log) <sub><sup>Raw data folder for .log files and output duty cycle CSV files.</sub></sup>
+<br>
+</details>
+
+<details>
+<summary><strong>MinkeNet:</strong> Need to add starting timestamps to the file name of each converted low-frequency .wav file using data from created low-frequency duty cycle CSV. <ins>COPY</ins> low-frequency .wav files for mission into the local temporary folder for renaming (do NOT move original copies of low-frequency .wav files into this folder to avoid accidentally editing normal file names). Low-frequency duty cycle CSV for mission (created in above step) must be located in <a href="https://github.com/keileygregory/UVI2_Around_STX_20250306/tree/main/data/data_raw/acoustic_raw/log">log</a> raw acoustic data folder for mission in order for .py script to run (file paths must match).</summary>
+<br>
+  
+  - <ins>*C:/Users/keileygregory/THESIS_REPOSITORIES/AUDIO_FILES/timestamp_wav_filename*</ins> <sub><sup>Local folder for temporary storage of low-frequency .wav file COPIES while the starting timestamp is added to the file name (location of .wav files must match file path in .py script).</sub></sup>
+  - [minkenet_wavfilename_addtimestamp.py](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/scripts/acoustic_analysis/audiofile_conversions/minkenet_wavfilename_addtimestamp.py) <sub><sup>Code to add the starting timestamps to the file names of .wav files located in local <ins>*timestamp_wav_filename*</ins> folder using data from low-frequency duty cycle CSV file located in mission [log](https://github.com/keileygregory/UVI2_Around_STX_20250306/tree/main/data/data_raw/acoustic_raw/log) raw acoustic data folder.</sub></sup>
+<br>
+</details>
+
+### *Process acoustic data in detector programs (LFDCS, MinkeNet, PAMGuard)*
+
+<details>
+<summary><strong>LFDCS:</strong> Write PARAM files to define the parameters for acoustic data processing/detectors in LFDCS (parameters: input/output folder paths, start date-time, and hydrophone model).</summary>
+<br>
+
+  - [UVI2_AroundSTX_20250306_PARAM.txt](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/scripts/acoustic_analysis/lfdcs/lfdcs_param_files/UVI2_AroundSTX_20250306_PARAM.txt) <sub><sup>PARAM .txt file defining parameters for LFDCS humpback and sei whale pitch track detectors.</sub></sup>
+  - [UVI2_AroundSTX_20250306_PARAM_LF.txt](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/scripts/acoustic_analysis/lfdcs/lfdcs_param_files/UVI2_AroundSTX_20250306_PARAM_LF.txt) <sub><sup>PARAM .txt file defining parameters for LFDCS fin whale pitch track detectors. This file differs from the normal PARAM.txt file because it uses a resample rate to 'zoom in' on and amplify the lower frequency (_LF) bands produced by fin whales for enhanced species detection.</sub></sup>
+<br>
+</details>
+
+<details>
+<summary><strong>MinkeNet:</strong> Write BATCH file to define the parameters for acoustic data processing/detectors in MinkeNet (parameters: input/output folder paths and <em>desired confidence threshold</em>).</summary>
+<br>
+  
+  - [UVI2_Around_STX_20250306_BAT.bat](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/scripts/acoustic_analysis/minkenet/minkenet_batch_files/UVI2_Around_STX_20250306_BAT.bat) <sub><sup>BATCH file defining parameters for MinkeNet detector.</sub></sup>
+<br>
+</details>
+
+### *Manually verify pitch tracks determined by detectors*
+
+<details>
+<summary><strong>LFDCS:</strong> Process audio, manually classify pitch tracks produced by LFDCS, and export CSV of manual review results using IDL code in terminal (and clickable GUI).</summary>
+<br>
+
+  - [lfdcs_IDLterminal_STX2025.txt](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/scripts/acoustic_analysis/lfdcs/lfdcs_IDLterminal_STX2025.txt) <sub><sup>IDL code entered in terminal to process audio files, manually review pitch tracks, and export CSV files of manual classification results in LFDCS.</sup></sub> 
+  - [Raw_HUWH_STX2025_MANUALVER.csv](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/data/data_processed/acoustic_processed/lfdcs_processed/Raw_HUWH_STX2025_MANUALVER.csv) <sub><sup>CSV output by LFDCS containing the manual classification results for each pitch track for a single species (humpback whales). The parameters of the file (call types, individual or binned detection data, start and end date-time stamps) are defined in the IDL code.</sup></sub>
+<br>
+</details>
+
+<details>
+<summary><strong>MinkeNet:</strong> Manually classify pitch tracks by reviewing the PNG and corresponding .wav files produced by MinkeNet. Create CSV of manual review results by recording the PNG file name for each correct pitch track (file names contain starting date-time stamps).</summary>
+<br>
+  
+  - enter manually created csv of minkenet analysis results here
+<br>
+</details>
+
+
+$\color{Red}{\text {RAW ACOUSTIC ANALYSIS? RAVEN? SAMPLE OF TRACK TO GET FALSE NEGATIVE RATE??} }$
+
+### *Post-process manually verified detection data CSVs*
+
+<details>
+<summary><strong>LFDCS:</strong> Tidy and refine raw CSV of manual classification results output by LFDCS, and export tidied data as CSV of <ins>all</ins> pitch tracks and as CSV of <ins>only correct</ins> pitch tracks.</summary>
+<br>
+  
+- [lfdcs_tidyexport_HUWH_STX2025.R](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/scripts/acoustic_analysis/lfdcs/lfdcs_tidyexport_HUWH_STX2025.R) <sub><sup>Code to tidy and refine raw CSV manual classification results output by LFDCS.</sup></sub>
+- [All_HUWH_STX2025_MANUALVER.csv](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/data/data_processed/acoustic_processed/lfdcs_processed/All_HUWH_STX2025_MANUALVER.csv) <sub><sup>CSV of tidied LFDCS manual review results for **ALL** pitch tracks.</sup></sub>
+- [Correct_HUWH_STX2025_MANUALVER.csv](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/data/data_processed/acoustic_processed/lfdcs_processed/Correct_HUWH_STX2025_MANUALVER.csv) <sub><sup>CSV of tidied and refined LFDCS manual review results for **ONLY CORRECT** pitch tracks.</sup></sub>
+<br>
+</details>
+
+<details>
+<summary><strong>MinkeNet:</strong> ?????.</summary>
+<br>
+  
+  - files
+<br>
+</details>
+
+## ⓵ⓑ ERDDAP DATA
+
+### *Process ERDDAP raw data into readable CSV*
+
+<details>
+<summary>Convert raw .nc files containing ERDDAP flight + science data into a readable CSV file containing columns for date-time stamp, latitude, longitude, trajectory (mission ID), source .nc file name, glider depth (m), water temperature (°C), salinity (PSU), and oxygen concentration (μmol/L).</summary>
+<br>
+
+  - [erddap_raw](https://github.com/keileygregory/UVI2_Around_STX_20250306/tree/main/data/data_raw/erddap_raw) <sub><sup>Folder containing all raw ERDDAP .nc files for mission.</sub></sup>
+  - [ncprofiles_tocsv_STX2025.py](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/scripts/erddap/ncprofiles_tocsv_STX2025.py) <sub><sup>Code to create readable CSV of desired variables in ERDDAP data using flight and science computer data stored in raw .nc files.</sub></sup>
+  - [RAW_erddap_UVI2_Around_STX_20250306.csv](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/data/data_processed/erddap_processed/RAW_erddap_UVI2_Around_STX_20250306.csv) <sub><sup>Readable CSV of raw ERDDAP data sourced from individual .nc files.</sub></sup>
+<br>
+</details>
+
+### *Examine ERDDAP raw data CSV for outliers and incorrect sensor readings*
+
+<details>
+<summary>Examine the <a href="https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/data/data_processed/erddap_processed/RAW_erddap_UVI2_Around_STX_20250306.csv">raw ERDDAP data</a> to identify and remove outliers/incorrect sensor readings using summary table, boxplots, scatterplots, and the IQR method.</summary>
+<br>
+  
+  - [inspect_rawerddap_outliers.R](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/scripts/erddap/inspect_rawerddap_outliers.R) <sub><sup>Code to examine raw ERDDAP data for outliers and incorrect sensor readings (using a summary table, variable value boxplots, variable vs glider depth scatterplots, and the IQR method) and remove incorrect values from dataframe.</sub></sup>
+  - [CLEAN_erddap_UVI2_Around_STX_20250306.csv](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/data/data_processed/erddap_processed/CLEAN_erddap_UVI2_Around_STX_20250306.csv) <sub><sup>CSV containing tidy ERDDAP data with incorrect sensor reading values removed.</sub></sup>
+<br>
+</details>
+
+<br>
+◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ 
+<br>
+
+# ⓶ INTERPOLATE ACOUSTIC & OCEANOGRAPHIC DATA
+
+## ⓶ⓐ INTERPOLATE ERDDAP DATA
+
+<details>
+<summary> Interpolate the latitude, longitude, and measured values of glider sensor-derived oceanographic variables (glider depth, water temperature, salinity, oxygen concentration) for each acoustic detection using data in the <a href="https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/data/data_processed/erddap_processed/RAW_erddap_UVI2_Around_STX_20250306.csv">tidy ERDDAP CSV</a>.</summary>
+<br>
+
+  - [interpolate_HUWH_erddap.R](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/scripts/interpolation/interpolate_HUWH_erddap.R) <sub><sup>Code to determine the coordinates and values of glider sensor-derived oceanographic variables for each row (each detection) in [correct detections CSV](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/data/data_processed/acoustic_processed/lfdcs_processed/Correct_HUWH_STX2025_MANUALVER.csv) using data from [tidy ERDDAP CSV](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/data/data_processed/erddap_processed/CLEAN_erddap_UVI2_Around_STX_20250306.csv).</sub></sup>
+  - [interpolated_HUWH_UVI2_Around_STX_20250306.csv](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/data/data_interpolated/interpolated_HUWH_UVI2_Around_STX_20250306.csv) <sub><sup>CSV containing relevant acoustic data PLUS interpolated latitude, longitude, glider depth (m), water temperature (°C), salinity (PSU), and oxygen concentration (μmol/L) for each detection (each row).</sub></sup>
+<br>
+</details>
+
+## ⓶ⓑ GIS MAPPING AND CALCULATIONS
+
+### *Map detection points and mission path on shaded relief bathymetry in ArcGIS*
+
+<details>
+<summary>Create map in ArcGIS Pro that has detection points for a single species, deployment/recovery points, and path line for the mission overlayed upon shaded relief bathymetry and green shoreline polygons. This map provides a visual display of detection point distributions and allows for qualitative analysis of the geomorphic conditions (bathymetry, distance to shore) where detection points occurred. Invisible layers of MPAs and seafloor morphology can also be used in the qualitative analysis of how designated protected marine areas and seafloor geomorphology affected detection point distribution throughout the mission path.</summary>
+<br>
+  
+  - [map_instructions.pdf](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/instructions/arcgis_instructions/map_instructions.pdf) <sub><sup>PDF containing step-by-step process for how to create a (species- and mission-specific) map in ArcGIS that can be used for qualitative analysis of how geomorphic conditions affected detection point distribution along the mission path line.</sub></sup>
+<br>
+</details>
+
+### *Calculate RASTERDEPTH, RASTERSLOPE, and NEAR_DIST for detection point in ArcGIS*
+
+<details>
+<summary>Calculate the bathymetric depth, bathymetric slope, distance to nearest shoreline, and name of nearest shoreline for each individual detection point using tools in ArcGIS Pro and data from the GEBCO Gridded 2025 15 arc-second resolution raster, US Caribbean 10-meter resolution raster <sub><em>(provided by J. Blondeau (UVI, NOAA), 2025)</em></sub>, and Caribbean shorelines polygon feature class <sub><em>(provided by J. Blondeau (UVI, NOAA), 2025)</em></sub> GIS datasets.</summary>
+<br>
+  
+  - [giscalc_instructions.pdf](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/instructions/arcgis_instructions/giscalc_instructions.pdf) <sub><sup>PDF containing ArcGIS Pro step-by-step process for how to calculate the bathymetric depth and slope for each detection using raster data and the distance (meters) to the nearest shoreline and name of the nearest shoreline for each detection using data in the CARIBBEAN_SHORELINES polygon feature class shapefile *(10-meter resolution raster data and shoreline data provided by J. Blondeau (UVI, NOAA), 2025)*.</sub></sup>
+  - [GISCALC_HUWH_STX2025.csv](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/data/data_gis/detections_gis/GISCALC_HUWH_STX2025.csv) <sub><sup>CSV containing the FULL DETECTIONS DATASET (for a single species during a single mission) including date-time, geospatial, taxonomic, acoustic, and oceanographic/geomorphic data.</sup></sub>
+
+<p align="left">
+  <img src="misc/images/metadata_GISCALC.png" width="800">
+</p>
+
+<br>
+</details>
+
+### *Determine background environmental conditions of mission in ArcGIS*
+
+<details>
+<summary>Calculate the <strong>background</strong> geomorphic conditions (bathymetric depth, bathymetric slope, and distance to nearest shoreline) of the entire mission in ArcGIS Pro. These background mission conditions will be used to compare the conditions in which detections COULD occur to the conditions in which detections ACTUALLY DID occur in order to differentiate between species habitat preferences from the habitats that were available during the mission.</summary>
+<br>
+  
+  - [background_instructions.pdf](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/instructions/arcgis_instructions/background_instructions.pdf)
+  - [background_bathydepth_GBC15a_STX2025.csv](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/data/data_gis/background_gis/background_bathydepth_GBC15a_STX2025.csv)
+  - [background_slope_GBC15a_STX2025.csv](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/data/data_gis/background_gis/background_slope_GBC15a_STX2025.csv)
+  - [background_distshore_STX2025.csv](https://github.com/keileygregory/UVI2_Around_STX_20250306/blob/main/data/data_gis/background_gis/background_distshore_STX2025.csv)
+<br>
+</details>
+
+<br>
+◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ ◯ 
+<br>
+
+# ⓷ STATISTICAL ANALYSES OF OCEANOGRAPHIC CONDITIONS
+<br>
+
+## ⓷ⓐ DETERMINE SENSOR-DERIVED BACKGROUND CONDITIONS FOR MISSION xxxxxxx
+
+### *Correlations between oceanographic variables*
+- PCA
+<br>
+
+## ⓷ⓑ DESCRIPTIVE STATISTICS & VISUALIZATIONS
+### *Summary table of quantitative variable descriptive statistics*
+- k
+
+### *Density plots of quantitative variable value distributions across detections*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

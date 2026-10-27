@@ -1,0 +1,2 @@
+"species","n_occurrences","optimal_rm","optimal_fc","AICc","delta_AICc","AUC_train","AUC_val","AUC_diff"
+"minke",186,3.5,"LQHP",4352.94757794477,0,0.737467741935484,0.657515958533351,0.14171072288229
