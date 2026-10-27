@@ -1,0 +1,1167 @@
+
+MacBookPro:kg_thesis_UVI2_Around_STX_20250306 keileygregory$ tree
+.
+├── conclusion_notes
+├── data
+│   ├── 1_data_raw
+│   │   ├── acoustic_raw
+│   │   │   ├── pamguard_config_files
+│   │   │   │   ├── Pamguard_UVI2_Around_STX_20250306.sqlite3
+│   │   │   │   ├── PamguardBinaryStoreUIDLog.xml
+│   │   │   │   ├── serialisedBinaryMap.data
+│   │   │   │   ├── serialisedSoundFileMap.data
+│   │   │   │   └── UVI2_Around_STX_20250306_Pamguard_20217e.psfx
+│   │   │   └── raw_acoustic_data_googledrive_link.txt
+│   │   ├── erddap_raw
+│   │   │   ├── uvi_02_20250306T200334Z_dbd.nc
+│   │   │   ├── uvi_02_20250306T205124Z_dbd.nc
+│   │   │   ├── uvi_02_20250306T213643Z_dbd.nc
+│   │   │   ├── uvi_02_20250306T222402Z_dbd.nc
+│   │   │   ├── uvi_02_20250306T232308Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T001206Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T010022Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T015021Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T024704Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T033321Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T041936Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T050732Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T061846Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T070533Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T075054Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T083613Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T093251Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T101743Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T110150Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T114724Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T125119Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T133558Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T142023Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T150643Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T161229Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T170203Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T175128Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T184133Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T195435Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T204350Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T213103Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T221939Z_dbd.nc
+│   │   │   ├── uvi_02_20250307T232707Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T001412Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T010029Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T014759Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T025722Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T034502Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T043307Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T052232Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T063916Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T072706Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T081430Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T090254Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T101825Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T110706Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T115335Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T124129Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T135530Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T144424Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T153158Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T162008Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T171905Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T180545Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T185230Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T193912Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T205049Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T213813Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T222518Z_dbd.nc
+│   │   │   ├── uvi_02_20250308T231332Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T001859Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T011026Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T020154Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T025354Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T040723Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T045425Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T054048Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T062837Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T073821Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T082558Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T091407Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T100329Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T111220Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T120131Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T124931Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T133616Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T144609Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T153253Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T161829Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T170540Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T180808Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T185340Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T193843Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T202448Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T213028Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T221845Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T230541Z_dbd.nc
+│   │   │   ├── uvi_02_20250309T235404Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T005922Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T014803Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T023522Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T032310Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T043038Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T052010Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T060731Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T065542Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T080103Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T084926Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T093518Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T102232Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T112859Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T121727Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T130500Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T135238Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T150022Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T154612Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T163256Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T172032Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T182517Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T191210Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T195750Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T204413Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T214955Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T223749Z_dbd.nc
+│   │   │   ├── uvi_02_20250310T232457Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T001206Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T011709Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T020529Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T025306Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T034123Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T044729Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T053554Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T062240Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T071037Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T081416Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T090150Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T094844Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T103559Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T114236Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T122938Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T131549Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T140239Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T145848Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T154425Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T163001Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T171712Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T182943Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T191633Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T200317Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T205054Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T214809Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T223614Z_dbd.nc
+│   │   │   ├── uvi_02_20250311T232324Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T001200Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T012618Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T015602Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T022512Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T025417Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T032333Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T035403Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T043828Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T050755Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T053632Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T060542Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T063618Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T070729Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T075652Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T082601Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T085444Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T092308Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T095115Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T102025Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T110033Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T112914Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T115732Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T122656Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T125610Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T132610Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T141231Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T144311Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T151322Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T154255Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T161204Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T164220Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T172800Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T175813Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T182737Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T185708Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T192550Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T195506Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T203905Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T210820Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T213656Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T220558Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T223634Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T230739Z_dbd.nc
+│   │   │   ├── uvi_02_20250312T234733Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T001746Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T004748Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T011710Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T014544Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T021504Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T030902Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T033926Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T040839Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T043747Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T050641Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T053716Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T061822Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T064944Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T072030Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T075059Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T082048Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T085130Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T093837Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T100905Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T103836Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T110812Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T113735Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T120834Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T125435Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T132503Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T135453Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T142431Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T145346Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T152408Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T161110Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T164214Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T171240Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T174234Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T181146Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T184208Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T192651Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T195537Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T202340Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T205156Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T211957Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T214947Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T223138Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T230259Z_dbd.nc
+│   │   │   ├── uvi_02_20250313T233259Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T000321Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T003300Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T010311Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T015415Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T022516Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T025451Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T032416Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T035526Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T042811Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T051307Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T054346Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T061350Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T064447Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T071609Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T074751Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T083217Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T090130Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T092940Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T095808Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T102711Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T105701Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T113949Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T120800Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T123550Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T130411Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T133232Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T140205Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T144556Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T151525Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T154334Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T161147Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T164008Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T170930Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T175414Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T182553Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T185648Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T192730Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T195815Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T202926Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T211320Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T214230Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T221036Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T223906Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T230740Z_dbd.nc
+│   │   │   ├── uvi_02_20250314T233641Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T002303Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T005325Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T012336Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T015419Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T022456Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T025607Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T034146Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T041142Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T044105Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T051115Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T054038Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T061033Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T065055Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T072051Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T075009Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T081912Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T084746Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T091759Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T100721Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T103737Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T110822Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T113949Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T121033Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T124211Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T133628Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T140627Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T143545Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T150555Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T153610Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T160657Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T165324Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T172232Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T175056Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T181937Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T184848Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T191943Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T200238Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T203431Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T210546Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T213708Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T220756Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T223957Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T232655Z_dbd.nc
+│   │   │   ├── uvi_02_20250315T235753Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T002913Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T005941Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T013035Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T020247Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T024831Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T031842Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T034743Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T041748Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T044654Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T051602Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T060319Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T063448Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T070530Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T073624Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T080638Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T083745Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T092718Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T095714Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T102648Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T105549Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T112418Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T115421Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T123429Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T130402Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T133219Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T140105Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T142954Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T145905Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T154747Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T161734Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T164609Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T171457Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T174318Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T181246Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T185625Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T192611Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T195538Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T202500Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T205403Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T212410Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T220902Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T223819Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T230825Z_dbd.nc
+│   │   │   ├── uvi_02_20250316T233904Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T000849Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T003833Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T012427Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T015427Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T022321Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T025240Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T032318Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T035451Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T044124Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T051140Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T054213Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T061257Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T064235Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T071309Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T075843Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T082904Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T085939Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T093003Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T100010Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T103112Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T110815Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T112513Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T113918Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T115054Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T121054Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T124205Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T132649Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T135650Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T142606Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T145547Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T152447Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T155533Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T163947Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T171016Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T174014Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T181019Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T184129Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T191310Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T200731Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T205437Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T214115Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T222928Z_dbd.nc
+│   │   │   ├── uvi_02_20250317T233241Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T002040Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T010944Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T015837Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T025644Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T034435Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T043328Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T052406Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T062136Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T070714Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T075318Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T084036Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T095322Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T104306Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T113220Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T122241Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T133155Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T142220Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T151147Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T160230Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T171541Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T180456Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T185350Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T194410Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T204546Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T213524Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T222357Z_dbd.nc
+│   │   │   ├── uvi_02_20250318T231250Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T002155Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T010851Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T015518Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T024312Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T034204Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T043145Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T051949Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T060930Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T072415Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T081442Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T090551Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T095703Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T110602Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T115552Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T124441Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T133350Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T144239Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T153226Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T162126Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T171130Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T182626Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T191628Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T200517Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T205506Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T221310Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T230037Z_dbd.nc
+│   │   │   ├── uvi_02_20250319T234740Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T003530Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T014453Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T023253Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T032006Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T040743Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T051752Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T060448Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T065054Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T073852Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T090945Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T095818Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T104546Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T113313Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T125318Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T134300Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T143116Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T152031Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T161935Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T170849Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T175733Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T184701Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T195645Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T204500Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T213158Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T221909Z_dbd.nc
+│   │   │   ├── uvi_02_20250320T231741Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T000611Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T005406Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T014304Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T025635Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T034507Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T043157Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T051951Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T061935Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T070741Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T075446Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T084255Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T095228Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T104026Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T112725Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T121505Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T132517Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T141523Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T150310Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T155208Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T170436Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T175029Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T183622Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T192428Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T202820Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T211456Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T220235Z_dbd.nc
+│   │   │   ├── uvi_02_20250321T225251Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T000507Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T005301Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T014007Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T022753Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T033135Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T041858Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T050600Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T055359Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T070123Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T075136Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T084032Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T093054Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T102957Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T111915Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T120902Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T125916Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T140340Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T144906Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T153355Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T162019Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T172021Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T180830Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T185610Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T194452Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T210015Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T215016Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T224023Z_dbd.nc
+│   │   │   ├── uvi_02_20250322T233106Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T004558Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T013454Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T022156Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T030939Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T042420Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T051333Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T060033Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T064855Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T080249Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T085154Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T093909Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T102715Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T113227Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T122148Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T131017Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T135919Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T150532Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T155212Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T163903Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T172630Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T182402Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T191345Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T200428Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T205508Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T215602Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T224348Z_dbd.nc
+│   │   │   ├── uvi_02_20250323T233034Z_dbd.nc
+│   │   │   ├── uvi_02_20250324T001755Z_dbd.nc
+│   │   │   ├── uvi_02_20250324T012804Z_dbd.nc
+│   │   │   ├── uvi_02_20250324T021605Z_dbd.nc
+│   │   │   ├── uvi_02_20250324T030318Z_dbd.nc
+│   │   │   ├── uvi_02_20250324T035103Z_dbd.nc
+│   │   │   ├── uvi_02_20250324T050338Z_dbd.nc
+│   │   │   ├── uvi_02_20250324T055058Z_dbd.nc
+│   │   │   ├── uvi_02_20250324T063852Z_dbd.nc
+│   │   │   ├── uvi_02_20250324T073002Z_dbd.nc
+│   │   │   ├── uvi_02_20250324T082449Z_dbd.nc
+│   │   │   └── uvi_02_20250324T083338Z_dbd.nc
+│   │   └── kmz_raw
+│   │       └── UVI2_Around_STX_20250306_edited.kmz
+│   ├── 2_data_processed
+│   │   ├── acoustic_processed
+│   │   │   ├── HF_processed
+│   │   │   │   ├── all_HF_clickevents_UVI2_Around_STX_20250306.csv
+│   │   │   │   ├── rawexport_pamguard_sqlite_click_detector_offlineevents_UVI2_Around_STX_20250306.csv
+│   │   │   │   ├── rawexport_pamguard_sqlite_spectrogram_annotation_UVI2_Around_STX_20250306.csv
+│   │   │   │   └── tidy_pamguard_sqlite_clickevents_UVI2_Around_STX_20250306.csv
+│   │   │   └── LF_processed
+│   │   │       ├── LF_UVI2_AroundSTX_COMBINED.csv
+│   │   │       ├── LF_UVI2_AroundSTX_start0_stop0308T020843.csv
+│   │   │       ├── LF_UVI2_AroundSTX_start0308T020943_stop0308T113443.csv
+│   │   │       ├── LF_UVI2_AroundSTX_start0308T113543_stop0309T035043.csv
+│   │   │       ├── LF_UVI2_AroundSTX_start0309T035143_stop0309T064943.csv
+│   │   │       ├── LF_UVI2_AroundSTX_start0309T065043_stop0309T172743.csv
+│   │   │       ├── LF_UVI2_AroundSTX_start0309T172843_stop0310T023643.csv
+│   │   │       ├── LF_UVI2_AroundSTX_start0310T023743_stop0310T180843.csv
+│   │   │       ├── LF_UVI2_AroundSTX_start0310T180943_stop0312T225143.csv
+│   │   │       ├── LF_UVI2_AroundSTX_start0312T225243_stop0314T000043.csv
+│   │   │       ├── LF_UVI2_AroundSTX_start0314T000143_stop0315T002043.csv
+│   │   │       ├── LF_UVI2_AroundSTX_start0315T002143_stop0317T053043.csv
+│   │   │       ├── LF_UVI2_AroundSTX_start0317T053143_stop0318T174743.csv
+│   │   │       ├── LF_UVI2_AroundSTX_start0318T174843_stop0319T104543.csv
+│   │   │       ├── LF_UVI2_AroundSTX_start0319T104743_stop0319T112343.csv
+│   │   │       ├── LF_UVI2_AroundSTX_start0319T112443_stop0319T144243.csv
+│   │   │       ├── LF_UVI2_AroundSTX_start0319T144343_stop0321T101943.txt
+│   │   │       ├── LF_UVI2_AroundSTX_start0321T102043_stop0322T211643.txt
+│   │   │       └── LF_UVI2_AroundSTX_start0322T211743_stop0324T083543.txt
+│   │   └── erddap_processed
+│   │       └── erddap_UVI2_Around_STX_20250306.csv
+│   ├── 3_data_analyzed
+│   │   └── acoustic_analyzed
+│   │       ├── HF_analyzed
+│   │       │   ├── gervais_analyzed_UVI2_Around_STX_20250306.csv
+│   │       │   ├── goose_analyzed_UVI2_Around_STX_20250306.csv
+│   │       │   ├── HF_all_mins_UVI2_Around_STX_20250306.csv
+│   │       │   ├── HF_possible_mins_UVI2_Around_STX_20250306.csv
+│   │       │   ├── HF_surfacing_mins_UVI2_Around_STX_20250306.csv
+│   │       │   ├── kogia_analyzed_UVI2_Around_STX_20250306.csv
+│   │       │   ├── odontocetes_analyzed_UVI2_Around_STX_20250306.csv
+│   │       │   ├── sperm_analyzed_UVI2_Around_STX_20250306.csv
+│   │       │   └── unidentified_odontocetes_analyzed_UVI2_Around_STX_20250306.csv
+│   │       └── LF_analyzed
+│   │           ├── humpback_analyzed_UVI2_Around_STX_20250306.csv
+│   │           ├── LF_all_mins_UVI2_Around_STX_20250306.csv
+│   │           ├── LF_possible_mins_UVI2_Around_STX_20250306.csv
+│   │           ├── LF_surfacing_mins_UVI2_Around_STX_20250306.csv
+│   │           └── minke_analyzed_UVI2_Around_STX_20250306.csv
+│   ├── 4_data_interpolated
+│   │   ├── HF_background_INTERPOLATED_UVI2_Around_STX_20250306.csv
+│   │   ├── humpback_INTERPOLATED_UVI2_Around_STX_20250306.csv
+│   │   ├── LF_background_INTERPOLATED_UVI2_Around_STX_20250306.csv
+│   │   ├── minke_INTERPOLATED_UVI2_Around_STX_20250306.csv
+│   │   ├── odontocetes_INTERPOLATED_UVI2_Around_STX_20250306.csv
+│   │   └── sperm_INTERPOLATED_UVI2_Around_STX_20250306.csv
+│   ├── 5_data_gis
+│   │   ├── HF_gis_data
+│   │   │   ├── calc_HF_background_points_p26920.csv
+│   │   │   ├── calc_odontocetes_points_p26920.csv
+│   │   │   ├── calc_sperm_points_p26920.csv
+│   │   │   ├── tidy_gervais_points_p26920.csv
+│   │   │   ├── tidy_goose_points_p26920.csv
+│   │   │   ├── tidy_HF_background_points_p26920.csv
+│   │   │   ├── tidy_kogia_points_p26920.csv
+│   │   │   ├── tidy_odontocetes_points_p26920.csv
+│   │   │   ├── tidy_sperm_points_p26920.csv
+│   │   │   └── tidy_uo_points_p26920.csv
+│   │   ├── LF_gis_data
+│   │   │   ├── calc_humpback_points_p26920.csv
+│   │   │   ├── calc_LF_background_points_p26920.csv
+│   │   │   ├── calc_minke_points_p26920.csv
+│   │   │   ├── tidy_humpback_points_p26920.csv
+│   │   │   ├── tidy_LF_background_points_p26920.csv
+│   │   │   └── tidy_minke_points_p26920.csv
+│   │   └── rasters_shapefiles
+│   │       ├── caribbean_shorelines_shapefile
+│   │       │   ├── CARIBBEAN_SHORELINES.cpg
+│   │       │   ├── CARIBBEAN_SHORELINES.dbf
+│   │       │   ├── CARIBBEAN_SHORELINES.prj
+│   │       │   ├── CARIBBEAN_SHORELINES.sbn
+│   │       │   ├── CARIBBEAN_SHORELINES.sbx
+│   │       │   ├── CARIBBEAN_SHORELINES.shp
+│   │       │   └── CARIBBEAN_SHORELINES.shx
+│   │       ├── GBC15a_bathy_p26920_v6642.tif
+│   │       └── GBC15a_slope_p26920_v6642.tif
+│   └── 6_data_analysis_outputs
+│       ├── maxent_model
+│       │   ├── 1_env_stack_output
+│       │   │   ├── correlation_matrix_maxent_env_stack.png
+│       │   │   ├── maxent_env_stack_1km_UTM20N.png
+│       │   │   └── maxent_env_stack_1km_UTM20N.tif
+│       │   ├── 2_pca_output
+│       │   │   ├── pca_biplot_pc1_pc2.png
+│       │   │   ├── pca_biplot_pc1_pc3.png
+│       │   │   ├── pca_biplot_pc2_pc3.png
+│       │   │   ├── pca_pc1.png
+│       │   │   ├── pca_pc2.png
+│       │   │   └── pca_pc3.png
+│       │   ├── 3_HF_maxent_output
+│       │   │   ├── glider_track_bias_layer_1km_UTM20N.png
+│       │   │   ├── glider_track_bias_layer_1km_UTM20N.tif
+│       │   │   ├── odontocetes
+│       │   │   │   ├── java_maxent
+│       │   │   │   │   ├── absence
+│       │   │   │   │   ├── maxent.html
+│       │   │   │   │   ├── maxent.log
+│       │   │   │   │   ├── maxentResults.csv
+│       │   │   │   │   ├── plots
+│       │   │   │   │   │   ├── species_bathymetry_only_thumb.png
+│       │   │   │   │   │   ├── species_bathymetry_only.dat
+│       │   │   │   │   │   ├── species_bathymetry_only.png
+│       │   │   │   │   │   ├── species_bathymetry_thumb.png
+│       │   │   │   │   │   ├── species_bathymetry.dat
+│       │   │   │   │   │   ├── species_bathymetry.png
+│       │   │   │   │   │   ├── species_Chl_log_only_thumb.png
+│       │   │   │   │   │   ├── species_Chl_log_only.dat
+│       │   │   │   │   │   ├── species_Chl_log_only.png
+│       │   │   │   │   │   ├── species_Chl_log_thumb.png
+│       │   │   │   │   │   ├── species_Chl_log.dat
+│       │   │   │   │   │   ├── species_Chl_log.png
+│       │   │   │   │   │   ├── species_dist_shore_only_thumb.png
+│       │   │   │   │   │   ├── species_dist_shore_only.dat
+│       │   │   │   │   │   ├── species_dist_shore_only.png
+│       │   │   │   │   │   ├── species_dist_shore_thumb.png
+│       │   │   │   │   │   ├── species_dist_shore.dat
+│       │   │   │   │   │   ├── species_dist_shore.png
+│       │   │   │   │   │   ├── species_jacknife.png
+│       │   │   │   │   │   ├── species_omission.png
+│       │   │   │   │   │   ├── species_roc.png
+│       │   │   │   │   │   ├── species_slope_only_thumb.png
+│       │   │   │   │   │   ├── species_slope_only.dat
+│       │   │   │   │   │   ├── species_slope_only.png
+│       │   │   │   │   │   ├── species_slope_thumb.png
+│       │   │   │   │   │   ├── species_slope.dat
+│       │   │   │   │   │   ├── species_slope.png
+│       │   │   │   │   │   ├── species_SSS_only_thumb.png
+│       │   │   │   │   │   ├── species_SSS_only.dat
+│       │   │   │   │   │   ├── species_SSS_only.png
+│       │   │   │   │   │   ├── species_SSS_thumb.png
+│       │   │   │   │   │   ├── species_SSS.dat
+│       │   │   │   │   │   ├── species_SSS.png
+│       │   │   │   │   │   ├── species_SST_only_thumb.png
+│       │   │   │   │   │   ├── species_SST_only.dat
+│       │   │   │   │   │   ├── species_SST_only.png
+│       │   │   │   │   │   ├── species_SST_thumb.png
+│       │   │   │   │   │   ├── species_SST.dat
+│       │   │   │   │   │   └── species_SST.png
+│       │   │   │   │   ├── presence
+│       │   │   │   │   ├── species_explain.bat
+│       │   │   │   │   ├── species_omission.csv
+│       │   │   │   │   ├── species_sampleAverages.csv
+│       │   │   │   │   ├── species_samplePredictions.csv
+│       │   │   │   │   ├── species.csv
+│       │   │   │   │   ├── species.html
+│       │   │   │   │   └── species.lambdas
+│       │   │   │   ├── odontocetes_ENMeval_results.csv
+│       │   │   │   ├── odontocetes_maxent_model.rds
+│       │   │   │   ├── odontocetes_model_summary.csv
+│       │   │   │   ├── odontocetes_response_curves.png
+│       │   │   │   ├── odontocetes_suitability_1km_UTM20N.png
+│       │   │   │   ├── odontocetes_suitability_1km_UTM20N.tif
+│       │   │   │   ├── odontocetes_variable_importance.csv
+│       │   │   │   └── odontocetes_variable_importance.png
+│       │   │   ├── sperm
+│       │   │   │   ├── java_maxent
+│       │   │   │   │   ├── absence
+│       │   │   │   │   ├── maxent.html
+│       │   │   │   │   ├── maxent.log
+│       │   │   │   │   ├── maxentResults.csv
+│       │   │   │   │   ├── plots
+│       │   │   │   │   │   ├── species_bathymetry_only_thumb.png
+│       │   │   │   │   │   ├── species_bathymetry_only.dat
+│       │   │   │   │   │   ├── species_bathymetry_only.png
+│       │   │   │   │   │   ├── species_bathymetry_thumb.png
+│       │   │   │   │   │   ├── species_bathymetry.dat
+│       │   │   │   │   │   ├── species_bathymetry.png
+│       │   │   │   │   │   ├── species_Chl_log_only_thumb.png
+│       │   │   │   │   │   ├── species_Chl_log_only.dat
+│       │   │   │   │   │   ├── species_Chl_log_only.png
+│       │   │   │   │   │   ├── species_Chl_log_thumb.png
+│       │   │   │   │   │   ├── species_Chl_log.dat
+│       │   │   │   │   │   ├── species_Chl_log.png
+│       │   │   │   │   │   ├── species_dist_shore_only_thumb.png
+│       │   │   │   │   │   ├── species_dist_shore_only.dat
+│       │   │   │   │   │   ├── species_dist_shore_only.png
+│       │   │   │   │   │   ├── species_dist_shore_thumb.png
+│       │   │   │   │   │   ├── species_dist_shore.dat
+│       │   │   │   │   │   ├── species_dist_shore.png
+│       │   │   │   │   │   ├── species_jacknife.png
+│       │   │   │   │   │   ├── species_omission.png
+│       │   │   │   │   │   ├── species_roc.png
+│       │   │   │   │   │   ├── species_slope_only_thumb.png
+│       │   │   │   │   │   ├── species_slope_only.dat
+│       │   │   │   │   │   ├── species_slope_only.png
+│       │   │   │   │   │   ├── species_slope_thumb.png
+│       │   │   │   │   │   ├── species_slope.dat
+│       │   │   │   │   │   ├── species_slope.png
+│       │   │   │   │   │   ├── species_SSS_only_thumb.png
+│       │   │   │   │   │   ├── species_SSS_only.dat
+│       │   │   │   │   │   ├── species_SSS_only.png
+│       │   │   │   │   │   ├── species_SSS_thumb.png
+│       │   │   │   │   │   ├── species_SSS.dat
+│       │   │   │   │   │   ├── species_SSS.png
+│       │   │   │   │   │   ├── species_SST_only_thumb.png
+│       │   │   │   │   │   ├── species_SST_only.dat
+│       │   │   │   │   │   ├── species_SST_only.png
+│       │   │   │   │   │   ├── species_SST_thumb.png
+│       │   │   │   │   │   ├── species_SST.dat
+│       │   │   │   │   │   └── species_SST.png
+│       │   │   │   │   ├── presence
+│       │   │   │   │   ├── species_explain.bat
+│       │   │   │   │   ├── species_omission.csv
+│       │   │   │   │   ├── species_sampleAverages.csv
+│       │   │   │   │   ├── species_samplePredictions.csv
+│       │   │   │   │   ├── species.csv
+│       │   │   │   │   ├── species.html
+│       │   │   │   │   └── species.lambdas
+│       │   │   │   ├── sperm_ENMeval_results.csv
+│       │   │   │   ├── sperm_maxent_model.rds
+│       │   │   │   ├── sperm_model_summary.csv
+│       │   │   │   ├── sperm_response_curves.png
+│       │   │   │   ├── sperm_suitability_1km_UTM20N.png
+│       │   │   │   ├── sperm_suitability_1km_UTM20N.tif
+│       │   │   │   ├── sperm_variable_importance.csv
+│       │   │   │   └── sperm_variable_importance.png
+│       │   │   ├── summary_odontocetes_maxent.csv
+│       │   │   ├── summary_sperm_maxent.csv
+│       │   │   ├── summary_uo_maxent.csv
+│       │   │   └── uo
+│       │   │       ├── java_maxent
+│       │   │       │   ├── absence
+│       │   │       │   ├── maxent.html
+│       │   │       │   ├── maxent.log
+│       │   │       │   ├── maxentResults.csv
+│       │   │       │   ├── plots
+│       │   │       │   │   ├── species_bathymetry_only_thumb.png
+│       │   │       │   │   ├── species_bathymetry_only.dat
+│       │   │       │   │   ├── species_bathymetry_only.png
+│       │   │       │   │   ├── species_bathymetry_thumb.png
+│       │   │       │   │   ├── species_bathymetry.dat
+│       │   │       │   │   ├── species_bathymetry.png
+│       │   │       │   │   ├── species_Chl_log_only_thumb.png
+│       │   │       │   │   ├── species_Chl_log_only.dat
+│       │   │       │   │   ├── species_Chl_log_only.png
+│       │   │       │   │   ├── species_Chl_log_thumb.png
+│       │   │       │   │   ├── species_Chl_log.dat
+│       │   │       │   │   ├── species_Chl_log.png
+│       │   │       │   │   ├── species_dist_shore_only_thumb.png
+│       │   │       │   │   ├── species_dist_shore_only.dat
+│       │   │       │   │   ├── species_dist_shore_only.png
+│       │   │       │   │   ├── species_dist_shore_thumb.png
+│       │   │       │   │   ├── species_dist_shore.dat
+│       │   │       │   │   ├── species_dist_shore.png
+│       │   │       │   │   ├── species_jacknife.png
+│       │   │       │   │   ├── species_omission.png
+│       │   │       │   │   ├── species_roc.png
+│       │   │       │   │   ├── species_slope_only_thumb.png
+│       │   │       │   │   ├── species_slope_only.dat
+│       │   │       │   │   ├── species_slope_only.png
+│       │   │       │   │   ├── species_slope_thumb.png
+│       │   │       │   │   ├── species_slope.dat
+│       │   │       │   │   ├── species_slope.png
+│       │   │       │   │   ├── species_SSS_only_thumb.png
+│       │   │       │   │   ├── species_SSS_only.dat
+│       │   │       │   │   ├── species_SSS_only.png
+│       │   │       │   │   ├── species_SSS_thumb.png
+│       │   │       │   │   ├── species_SSS.dat
+│       │   │       │   │   ├── species_SSS.png
+│       │   │       │   │   ├── species_SST_only_thumb.png
+│       │   │       │   │   ├── species_SST_only.dat
+│       │   │       │   │   ├── species_SST_only.png
+│       │   │       │   │   ├── species_SST_thumb.png
+│       │   │       │   │   ├── species_SST.dat
+│       │   │       │   │   └── species_SST.png
+│       │   │       │   ├── presence
+│       │   │       │   ├── species_explain.bat
+│       │   │       │   ├── species_omission.csv
+│       │   │       │   ├── species_sampleAverages.csv
+│       │   │       │   ├── species_samplePredictions.csv
+│       │   │       │   ├── species.csv
+│       │   │       │   ├── species.html
+│       │   │       │   └── species.lambdas
+│       │   │       ├── uo_ENMeval_results.csv
+│       │   │       ├── uo_maxent_model.rds
+│       │   │       ├── uo_model_summary.csv
+│       │   │       ├── uo_response_curves.png
+│       │   │       ├── uo_suitability_1km_UTM20N.png
+│       │   │       ├── uo_suitability_1km_UTM20N.tif
+│       │   │       ├── uo_variable_importance.csv
+│       │   │       └── uo_variable_importance.png
+│       │   ├── 3_LF_maxent_output
+│       │   │   ├── glider_track_bias_layer_1km_UTM20N.png
+│       │   │   ├── glider_track_bias_layer_1km_UTM20N.tif
+│       │   │   ├── humpback
+│       │   │   │   ├── humpback_ENMeval_results.csv
+│       │   │   │   ├── humpback_maxent_model.rds
+│       │   │   │   ├── humpback_model_summary.csv
+│       │   │   │   ├── humpback_response_curves.png
+│       │   │   │   ├── humpback_suitability_1km_UTM20N.png
+│       │   │   │   ├── humpback_suitability_1km_UTM20N.tif
+│       │   │   │   ├── humpback_variable_importance.csv
+│       │   │   │   ├── humpback_variable_importance.png
+│       │   │   │   └── java_maxent
+│       │   │   │       ├── absence
+│       │   │   │       ├── maxent.html
+│       │   │   │       ├── maxent.log
+│       │   │   │       ├── maxentResults.csv
+│       │   │   │       ├── plots
+│       │   │   │       │   ├── species_bathymetry_only_thumb.png
+│       │   │   │       │   ├── species_bathymetry_only.dat
+│       │   │   │       │   ├── species_bathymetry_only.png
+│       │   │   │       │   ├── species_bathymetry_thumb.png
+│       │   │   │       │   ├── species_bathymetry.dat
+│       │   │   │       │   ├── species_bathymetry.png
+│       │   │   │       │   ├── species_Chl_log_only_thumb.png
+│       │   │   │       │   ├── species_Chl_log_only.dat
+│       │   │   │       │   ├── species_Chl_log_only.png
+│       │   │   │       │   ├── species_Chl_log_thumb.png
+│       │   │   │       │   ├── species_Chl_log.dat
+│       │   │   │       │   ├── species_Chl_log.png
+│       │   │   │       │   ├── species_dist_shore_only_thumb.png
+│       │   │   │       │   ├── species_dist_shore_only.dat
+│       │   │   │       │   ├── species_dist_shore_only.png
+│       │   │   │       │   ├── species_dist_shore_thumb.png
+│       │   │   │       │   ├── species_dist_shore.dat
+│       │   │   │       │   ├── species_dist_shore.png
+│       │   │   │       │   ├── species_jacknife.png
+│       │   │   │       │   ├── species_omission.png
+│       │   │   │       │   ├── species_roc.png
+│       │   │   │       │   ├── species_slope_only_thumb.png
+│       │   │   │       │   ├── species_slope_only.dat
+│       │   │   │       │   ├── species_slope_only.png
+│       │   │   │       │   ├── species_slope_thumb.png
+│       │   │   │       │   ├── species_slope.dat
+│       │   │   │       │   ├── species_slope.png
+│       │   │   │       │   ├── species_SSS_only_thumb.png
+│       │   │   │       │   ├── species_SSS_only.dat
+│       │   │   │       │   ├── species_SSS_only.png
+│       │   │   │       │   ├── species_SSS_thumb.png
+│       │   │   │       │   ├── species_SSS.dat
+│       │   │   │       │   ├── species_SSS.png
+│       │   │   │       │   ├── species_SST_only_thumb.png
+│       │   │   │       │   ├── species_SST_only.dat
+│       │   │   │       │   ├── species_SST_only.png
+│       │   │   │       │   ├── species_SST_thumb.png
+│       │   │   │       │   ├── species_SST.dat
+│       │   │   │       │   └── species_SST.png
+│       │   │   │       ├── presence
+│       │   │   │       ├── species_explain.bat
+│       │   │   │       ├── species_omission.csv
+│       │   │   │       ├── species_sampleAverages.csv
+│       │   │   │       ├── species_samplePredictions.csv
+│       │   │   │       ├── species.csv
+│       │   │   │       ├── species.html
+│       │   │   │       └── species.lambdas
+│       │   │   ├── minke
+│       │   │   │   ├── java_maxent
+│       │   │   │   │   ├── absence
+│       │   │   │   │   ├── maxent.html
+│       │   │   │   │   ├── maxent.log
+│       │   │   │   │   ├── maxentResults.csv
+│       │   │   │   │   ├── plots
+│       │   │   │   │   │   ├── species_bathymetry_only_thumb.png
+│       │   │   │   │   │   ├── species_bathymetry_only.dat
+│       │   │   │   │   │   ├── species_bathymetry_only.png
+│       │   │   │   │   │   ├── species_bathymetry_thumb.png
+│       │   │   │   │   │   ├── species_bathymetry.dat
+│       │   │   │   │   │   ├── species_bathymetry.png
+│       │   │   │   │   │   ├── species_Chl_log_only_thumb.png
+│       │   │   │   │   │   ├── species_Chl_log_only.dat
+│       │   │   │   │   │   ├── species_Chl_log_only.png
+│       │   │   │   │   │   ├── species_Chl_log_thumb.png
+│       │   │   │   │   │   ├── species_Chl_log.dat
+│       │   │   │   │   │   ├── species_Chl_log.png
+│       │   │   │   │   │   ├── species_dist_shore_only_thumb.png
+│       │   │   │   │   │   ├── species_dist_shore_only.dat
+│       │   │   │   │   │   ├── species_dist_shore_only.png
+│       │   │   │   │   │   ├── species_dist_shore_thumb.png
+│       │   │   │   │   │   ├── species_dist_shore.dat
+│       │   │   │   │   │   ├── species_dist_shore.png
+│       │   │   │   │   │   ├── species_jacknife.png
+│       │   │   │   │   │   ├── species_omission.png
+│       │   │   │   │   │   ├── species_roc.png
+│       │   │   │   │   │   ├── species_slope_only_thumb.png
+│       │   │   │   │   │   ├── species_slope_only.dat
+│       │   │   │   │   │   ├── species_slope_only.png
+│       │   │   │   │   │   ├── species_slope_thumb.png
+│       │   │   │   │   │   ├── species_slope.dat
+│       │   │   │   │   │   ├── species_slope.png
+│       │   │   │   │   │   ├── species_SSS_only_thumb.png
+│       │   │   │   │   │   ├── species_SSS_only.dat
+│       │   │   │   │   │   ├── species_SSS_only.png
+│       │   │   │   │   │   ├── species_SSS_thumb.png
+│       │   │   │   │   │   ├── species_SSS.dat
+│       │   │   │   │   │   ├── species_SSS.png
+│       │   │   │   │   │   ├── species_SST_only_thumb.png
+│       │   │   │   │   │   ├── species_SST_only.dat
+│       │   │   │   │   │   ├── species_SST_only.png
+│       │   │   │   │   │   ├── species_SST_thumb.png
+│       │   │   │   │   │   ├── species_SST.dat
+│       │   │   │   │   │   └── species_SST.png
+│       │   │   │   │   ├── presence
+│       │   │   │   │   ├── species_omission.csv
+│       │   │   │   │   ├── species_sampleAverages.csv
+│       │   │   │   │   ├── species_samplePredictions.csv
+│       │   │   │   │   ├── species.csv
+│       │   │   │   │   ├── species.html
+│       │   │   │   │   └── species.lambdas
+│       │   │   │   ├── minke_ENMeval_results.csv
+│       │   │   │   ├── minke_maxent_model.rds
+│       │   │   │   ├── minke_model_summary.csv
+│       │   │   │   ├── minke_response_curves.png
+│       │   │   │   ├── minke_suitability_1km_UTM20N.png
+│       │   │   │   ├── minke_suitability_1km_UTM20N.tif
+│       │   │   │   ├── minke_variable_importance.csv
+│       │   │   │   └── minke_variable_importance.png
+│       │   │   ├── summary_humpback_maxent.csv
+│       │   │   └── summary_minke_maxent.csv
+│       │   └── geo_maxent_files
+│       │       ├── bathy_1km_UTM20N.tif
+│       │       ├── chla_maxent_env_stack_dineof2km.nc
+│       │       ├── chlameanlog_maxent_env_stack_dineof2km.png
+│       │       ├── chlameanlog_maxent_env_stack_dineof2km.tif
+│       │       ├── chllog_1km_UTM20N.tif
+│       │       ├── distshore_1km_UTM20N.tif
+│       │       ├── shoredist_maxent_env_stack.png
+│       │       ├── shoredist_maxent_env_stack.tif
+│       │       ├── slope_1km_UTM20N.tif
+│       │       ├── sss_1km_UTM20N.tif
+│       │       ├── sss_maxent_env_stack_anfc_cmems.nc
+│       │       ├── sssmean_maxent_env_stack_anfc_cmems.png
+│       │       ├── sssmean_maxent_env_stack_anfc_cmems.tif
+│       │       ├── sst_1km_UTM20N.tif
+│       │       ├── sst_maxent_env_stack_mur_nasajpl.nc
+│       │       ├── sstmean_maxent_env_stack_mur_nasajpl.png
+│       │       └── sstmean_maxent_env_stack_mur_nasajpl.tif
+│       └── summary_descriptstats_tables
+│           ├── HF_background_summarytable.csv
+│           ├── humpback_summarytable.csv
+│           ├── LF_background_summarytable.csv
+│           ├── minke_summarytable.csv
+│           ├── odontocetes_summarytable.csv
+│           └── sperm_summarytable.csv
+├── figures
+│   ├── envirovars_density_plots
+│   │   ├── humpback_LF_envirovars_denplot_UVI2_Around_STX_20250306.png
+│   │   ├── minke_LF_envirovars_denplot_UVI2_Around_STX_20250306.png
+│   │   ├── odontocetes_HF_envirovars_denplot_UVI2_Around_STX_20250306.png
+│   │   └── sperm_HF_envirovars_denplot_UVI2_Around_STX_20250306.png
+│   ├── maps
+│   │   ├── humpback_heatmap.png
+│   │   ├── minke_heatmap.png
+│   │   ├── odontocetes_heatmap.png
+│   │   └── sperm_heatmap.png
+│   └── maxent_model
+│       ├── formatted
+│       │   ├── canva_humpback_maxent_map_aroundstx2025.png
+│       │   ├── canva_minke_maxent_map_aroundstx2025.png
+│       │   ├── canva_odontocetes_maxent_map_aroundstx2025.png
+│       │   └── canva_sperm_maxent_map_aroundstx2025.png
+│       ├── humpback_maxent_map_aroundstx2025.png
+│       ├── minke_maxent_map_aroundstx2025.png
+│       ├── odontocetes_maxent_map_aroundstx2025.png
+│       ├── sperm_maxent_map_aroundstx2025.png
+│       └── uo_maxent_map_aroundstx2025.png
+├── kg_thesis_UVI2_Around_STX_20250306.Rproj
+├── README.md
+├── resources
+│   ├── dmon
+│   │   ├── decode_dmon_log_files-update-release-dmon2_2503.pdf
+│   │   ├── decode_dmon_xml_files-update-release-dmon2_2503.docx
+│   │   └── dmon_manuals
+│   │       ├── dmon2_2503-release-updates-and-installation-instructions.txt.pdf
+│   │       ├── guide_reformat_dmon_wav_files - for sav file VERSION 1 (update release dmon2_2503).pdf
+│   │       ├── The DMON2 A Commercially Available Broadband Acoustic Monitoring Instrument (Baumgartner et al., 2014).pdf
+│   │       ├── Using the DMON2 with a Slocum glider (Baumgartner & Partan, 2025) - for DMON2 update release dmon2_2503.pdf
+│   │       └── Using the DMON2 with a Slocum glider for archival passive acoustic monitoring (Baumgartner & Partan, 2024) - for DMON2 update release dmon2_mcr_2405.pdf
+│   ├── gis
+│   │   ├── GEBCO_Grid_documentation.pdf
+│   │   ├── geographic_coordinate_systems-pro3.7.pdf
+│   │   ├── geographic_transformations-pro3.7.pdf
+│   │   └── projected_coordinate_systems-pro3.7.pdf
+│   └── gliders_and_piloting
+│       └── slocum_manuals
+│           ├── Basic Glider Training Slides_approved_20231107.pdf
+│           ├── G3 Slocum Training Presentation.pdf
+│           ├── G3S Glider Operator Manual 2025-07-18.pdf
+│           ├── GliderTraining17 MTS Packet (Rutgers Workshop 06:2026).pdf
+│           ├── SFMC User Manual [M313834-NFC, Rev B] Software Ver 8.7.0-1.pdf
+│           ├── Slocum_glider_operation_training_manual.pdf
+│           └── Slocum_Masterdata_11.07_OregonState.pdf
+└── scripts
+    ├── 1A_acoustic_scripts
+    │   ├── HF_scripts
+    │   │   ├── 2_rename_HF_wav.py
+    │   │   ├── 3_all_HF_mins_from_filenames.py
+    │   │   ├── 4_tidy_pamguard_export_clicks.py
+    │   │   ├── 5_separate_HF_species.py
+    │   │   └── 6_possible_HF_detection_mins.py
+    │   ├── LF_scripts
+    │   │   ├── 2_rename_LF_wav.py
+    │   │   ├── 3_clip_LF_wav.py
+    │   │   ├── 4_combine_LF_ravenselectiontables.py
+    │   │   ├── 5_separate_LF_species.py
+    │   │   └── 6_possible_LF_detection_mins.py
+    │   └── sav_version1-release-dmon2_2503
+    │       └── reformat_dmon_wav_files.sav
+    ├── 1B_erddap_scripts
+    │   └── erddap_ncfiles_to_csv.py
+    ├── 2_interpolation_scripts
+    │   ├── interpolate_HF_background_erddap.py
+    │   ├── interpolate_humpback_erddap.py
+    │   ├── interpolate_LF_background_erddap.py
+    │   ├── interpolate_minke_erddap.py
+    │   ├── interpolate_odontocetes_erddap.py
+    │   └── interpolate_sperm_erddap.py
+    ├── 3_gis_scripts
+    │   ├── arcpy_scripts
+    │   │   ├── mission_species_arcpy_scripts
+    │   │   │   ├── HF_arcpy_scripts
+    │   │   │   │   ├── 1_create_fcs_from_csvs.ipynb
+    │   │   │   │   ├── 2_create_deployment_recovery_fcs_from_csvs.ipynb
+    │   │   │   │   ├── 3_shoreline_calculations.ipynb
+    │   │   │   │   ├── 4_raster_calculations.ipynb
+    │   │   │   │   └── 5_tidy_calc_atttable_exportcsv.ipynb
+    │   │   │   └── LF_arcpy_scripts
+    │   │   │       ├── 1_create_fcs_from_csvs.ipynb
+    │   │   │       ├── 2_create_deployment_recovery_fcs_from_csvs.ipynb
+    │   │   │       ├── 3_shoreline_calculations.ipynb
+    │   │   │       ├── 4_raster_calculations.ipynb
+    │   │   │       └── 5_tidy_calc_atttable_exportcsv.ipynb
+    │   │   └── thesis_setup_arcpy_scripts
+    │   │       ├── 1_thesis_boundary_calcgeomatt_exportcsv.ipynb
+    │   │       ├── 2_shorelines_clip2boundary_exportshp.ipynb
+    │   │       ├── 3_gebco_mosaic_raster_footprint.ipynb
+    │   │       ├── 4_usc_gbc_setnull_land.ipynb
+    │   │       ├── 5_gbc_reproject_clip2boundary.ipynb
+    │   │       ├── 6_usc_gbc_slope.ipynb
+    │   │       ├── 7_gbc_remove_usc_overlap.ipynb
+    │   │       ├── 8_uscgbc_mosaics_rasters_exporttif.ipynb
+    │   │       ├── 9_uscgbc_footprints_split_calcgeomatt_exportcsv_exportshp.ipynb
+    │   │       ├── featureclass_properties_to_csv_scripts
+    │   │       │   ├── featureclass_properties_to_csv_comparisonsets.ipynb
+    │   │       │   └── featureclass_properties_to_csv_geodatabasesets.ipynb
+    │   │       └── raster_properties_to_csv_scripts
+    │   │           ├── raster_properties_to_csv_comparisonsets.ipynb
+    │   │           └── raster_properties_to_csv_geodatabasesets.ipynb
+    │   └── tidy_arcgis_output_scripts
+    │       ├── separate_odontocetes_arcgis_output_already_tidied.py
+    │       ├── tidy_HF_arcgis_output.py
+    │       ├── tidy_humpback_arcgis_output.py
+    │       ├── tidy_LF_arcgis_output.py
+    │       ├── tidy_minke_arcgis_output.py
+    │       ├── tidy_odontocetes_arcgis_output.py
+    │       └── tidy_sperm_arcgis_output.py
+    └── 4_analysis_scripts
+        ├── detections_vs_background_scripts
+        │   ├── humpback_LF_sumtab_denplot.qmd
+        │   ├── minke_LF_sumtab_denplot.qmd
+        │   ├── odontocetes_HF_sumtab_denplot.qmd
+        │   └── sperm_HF_sumtab_denplot.qmd
+        └── maxent_scripts
+            ├── 1_env_stack.qmd
+            ├── 2_pca_env_stack_vars.qmd
+            ├── 3_humpback_maxent_model.qmd
+            ├── 3_minke_maxent_model.qmd
+            ├── 3_odontocetes_maxent_model.qmd
+            ├── 3_sperm_maxent_model.qmd
+            └── 3_uo_maxent_model.qmd
+
+76 directories, 1087 files

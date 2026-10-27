@@ -1,0 +1,32 @@
+
+ALREADY REMOVED FROM DIAGRAM BC ENTIRE .git FOLDER IS REMOVED:
+
+#1	1075333516 ./.git/objects/pack/pack-f66d91caca64e9e0b9cc80b0532a05277ca4b207.pack
+#3	808013824 ./.git/lfs/objects/ab/11/ab113ffdefbaaf94f4fa5f05fa2f8c1943254e0df4203d903f2a364d9afa628c
+#5	402935018 ./.git/lfs/objects/19/4b/194bcd5105fef50f6eea4e30bcd964bd1942f7acaf37a4d4483dc9d4410868fb
+#7	119017303 ./.git/lfs/objects/62/58/6258c26dbf4480904eeeaf56187d33a8364a9504a6d615aa314fbc3b712db91d
+#9	61823832 ./.git/lfs/objects/7f/f5/7ff5914fd21e52efe7ebd774e2f7d5c2b63339294a63ad3dbe816eea8a3d1002
+
+-----------------------------------------------
+
+#2	808013824 ./data/1_data_raw/acoustic_raw/pamguard_config_files/Pamguard_UVI2_Around_STX_20250306.sqlite3
+
+#4	402935018 ./data/2_data_processed/erddap_processed/erddap_UVI2_Around_STX_20250306.csv
+
+#6	119017303 ./data/1_data_raw/acoustic_raw/pamguard_config_files/serialisedBinaryMap.data
+
+#8	61823832 ./data/6_data_analysis_outputs/maxent_model/geo_maxent_files/sst_maxent_env_stack_mur_nasajpl.nc
+
+#10	47059905 ./figures/maps/odontocetes_heatmap.png
+#11	45722382 ./figures/maps/humpback_heatmap.png
+#12	45087828 ./figures/maps/minke_heatmap.png
+#13	44283669 ./figures/maps/sperm_heatmap.png
+
+#14	40383300 ./figures/maxent_model/formatted/canva_sperm_maxent_map_aroundstx2025.png
+#16	27604682 ./figures/maxent_model/formatted/canva_minke_maxent_map_aroundstx2025.png
+#17	25461574 ./figures/maxent_model/formatted/canva_humpback_maxent_map_aroundstx2025.png
+#18	23170997 ./figures/maxent_model/sperm_maxent_map_aroundstx2025.png
+#19	22980120 ./figures/maxent_model/formatted/canva_odontocetes_maxent_map_aroundstx2025.png
+
+#15	39939481 ./resources/gliders_and_piloting/slocum_manuals/SFMC User Manual [M313834-NFC, Rev B] Software Ver 8.7.0-1.pdf
+#20	20265923 ./resources/gliders_and_piloting/slocum_manuals/G3S Glider Operator Manual 2025-07-18.pdf

@@ -1,0 +1,164 @@
+
+MacBookPro:kg_thesis_UVI2_Around_STX_20250306 keileygregory$ tree
+.
+├── conclusion_notes
+
+
+├── data
+
+│   ├── 1_data_raw
+│   │   ├── acoustic_raw
+│   │   │   ├── pamguard_config_files
+│   │   │   │   └── 5
+│   │   │   └── 1
+│   │   ├── erddap_raw
+│   │   │   └── 580
+│   │   └── kmz_raw
+│   │       └── 1
+
+│   ├── 2_data_processed
+│   │   ├── acoustic_processed
+│   │   │   ├── HF_processed
+│   │   │   │   └── 4
+│   │   │   └── LF_processed
+│   │   │       └── 19
+│   │   └── erddap_processed
+│   │       └── 1
+
+│   ├── 3_data_analyzed
+│   │   └── acoustic_analyzed
+│   │       ├── HF_analyzed
+│   │       │   └── 9
+│   │       └── LF_analyzed
+│   │           └── 5
+
+│   ├── 4_data_interpolated
+│   │   └── 6
+
+│   ├── 5_data_gis
+│   │   ├── HF_gis_data
+│   │   │   └── 10
+│   │   ├── LF_gis_data
+│   │   │   └── 6
+│   │   └── rasters_shapefiles
+│   │       ├── caribbean_shorelines_shapefile
+│   │       │   └── 7
+│   │       └── 2
+
+│   └── 6_data_analysis_outputs
+│       ├── maxent_model
+│       │   ├── 1_env_stack_output
+│       │   │   └── 3
+│       │   ├── 2_pca_output
+│       │   │   └── 6
+│       │   ├── 3_HF_maxent_output
+│       │   │   ├── 5
+│       │   │   ├── odontocetes
+│       │   │   │   ├── 8
+│       │   │   │   └── java_maxent
+│       │   │   │       ├── 12
+│       │   │   │       └── plots
+│       │   │   │           └── 39
+│       │   │   ├── sperm
+│       │   │   │   ├── 8
+│       │   │   │   └── java_maxent
+│       │   │   │       ├── 12
+│       │   │   │       └── plots
+│       │   │   │           └── 39
+│       │   │   └── uo
+│       │   │       ├── 8
+│       │   │       └── java_maxent
+│       │   │           ├── 12
+│       │   │           └── plots
+│       │   │               └── 39
+│       │   ├── 3_LF_maxent_output
+│       │   │   ├── 5
+│       │   │   ├── humpback
+│       │   │   │   ├── 8
+│       │   │   │   └── java_maxent
+│       │   │   │       ├── 12
+│       │   │   │       └── plots
+│       │   │   │           └── 39
+│       │   │   └── minke
+│       │   │       ├── 8
+│       │   │       └── java_maxent
+│       │   │           ├── 12
+│       │   │           └── plots
+│       │   │               └── 39
+│       │   └── geo_maxent_files
+│       │       └── 17
+│       └── summary_descriptstats_tables
+│           └── 6
+
+
+├── figures
+│   ├── envirovars_density_plots
+│   │   └── 4
+│   ├── maps
+│   │   └── 4
+│   └── maxent_model
+│       ├── 5
+│       └── formatted
+│           └── 4
+
+
+├── kg_thesis_UVI2_Around_STX_20250306.Rproj
+
+
+├── README.md
+
+
+├── resources
+│   ├── dmon
+│   │   ├── 2
+│   │   └── dmon_manuals
+│   │       └── 5
+│   ├── gis
+│   │   └── 4
+│   └── gliders_and_piloting
+│       └── slocum_manuals
+│           └── 7
+
+
+└── scripts
+
+    ├── 1A_acoustic_scripts
+    │   ├── HF_scripts
+    │   │   └── 6
+    │   ├── LF_scripts
+    │   │   └── 6
+    │   └── sav_version1-release-dmon2_2503
+    │       └── 1
+
+    ├── 1B_erddap_scripts
+    │   └── 1
+
+    ├── 2_interpolation_scripts
+    │   └── 6
+
+    ├── 3_gis_scripts
+    │   ├── arcpy_scripts
+    │   │   ├── mission_species_arcpy_scripts
+    │   │   │   ├── HF_arcpy_scripts
+    │   │   │   │   └── 5
+    │   │   │   └── LF_arcpy_scripts
+    │   │   │       └── 5
+    │   │   └── thesis_setup_arcpy_scripts
+    │   │       ├── 9
+    │   │       ├── featureclass_properties_to_csv_scripts
+    │   │       │   └── 2
+    │   │       └── raster_properties_to_csv_scripts
+    │   │           └── 2
+    │   └── tidy_arcgis_output_scripts
+    │       └── 7
+
+    └── 4_analysis_scripts
+        ├── detections_vs_background_scripts
+        │   └── 4
+        └── maxent_scripts
+            └── 7
+
+
+
+
+76 directories, 1087 files
