@@ -1,4 +1,0 @@
-MINKE CONCLUSION NOTES
-based on arcgis heatmap, environmental variables density multifaceted plot, and maxent map
-
--------------------------------------------------------------------------

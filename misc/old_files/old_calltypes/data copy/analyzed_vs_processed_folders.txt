@@ -1,4 +1,0 @@
-
-Analyzed folder for FINAL outputs
-
-Processed folder for INTERMEDIATE versions
