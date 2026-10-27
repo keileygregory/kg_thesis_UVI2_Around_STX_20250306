@@ -17,8 +17,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Build the SVG only; pushing is done in the next step because the action's own push fails once the "diagram" branch exists
-      # (the action is downloaded and run directly instead of with "uses:" so its folder-label rules can be changed first; settings are passed as INPUT_ variables, which is how "with:" values reach the action)
+      # Build the SVG only; pushing is done in the next step because the action's own push fails once the "diagram" branch exists (the action is downloaded and run directly instead of with "uses:" so its folder-label rules can be changed first; settings are passed as INPUT_ variables, which is how "with:" values reach the action)
       - name: Update diagram
         env:
           INPUT_OUTPUT_FILE: "diagram.svg"
@@ -28,7 +27,7 @@ jobs:
           INPUT_EXCLUDED_PATHS: ".git,.github,.Rproj.user,tree"
           
           # Files to exclude from diagram (**/.DS_Store = all .DS_Store files in all subfolders; **/java_maxent = all java_maxent folders and their contents; **/erddap_raw/*.nc = all .nc files INSIDE 'erddap_raw' folder)
-          INPUT_EXCLUDED_GLOBS: ".gitattributes;.gitignore;**/.DS_Store;**/java_maxent;**/erddap_raw/*.nc"
+          INPUT_EXCLUDED_GLOBS: ".gitattributes;.gitignore;**/.DS_Store;**/java_maxent;**/erddap_raw/*.nc;**/github_repo_visualizer_instructions.pdf"
           
           # Folders that always get a label, even if their circle is small (full path from repo root, separated by semicolons)
           LABEL_SHOW: "scripts/2_interpolation_scripts;scripts/4_analysis_scripts/maxent_scripts;data/3_data_analyzed;data/4_data_interpolated"
@@ -43,8 +42,7 @@ jobs:
           # Download version 0.7.1 of the action into a temporary folder on the runner
           git clone --quiet --depth 1 --branch 0.7.1 https://github.com/githubocto/repo-visualizer.git "$RUNNER_TEMP/repo-visualizer"
           
-          # Write a small script that changes the action's label rules so LABEL_SHOW folders always get a label and LABEL_HIDE folders never do
-          # (it also adds INPUT_FILE_COLORS to the action's color list, because version 0.7.1 has no file_colors setting of its own)
+          # Write a small script that changes the action's label rules so LABEL_SHOW folders always get a label and LABEL_HIDE folders never do (it also adds INPUT_FILE_COLORS to the action's color list, because version 0.7.1 has no file_colors setting of its own)
           cat > "$RUNNER_TEMP/patch-labels.js" <<'EOF'
           const fs = require("fs");
           const file = process.argv[2];
