@@ -35,11 +35,16 @@ jobs:
           
           # Folders that never get a label (full path from repo root, separated by semicolons)
           LABEL_HIDE: "scripts/1A_acoustic_scripts/HF_scripts;scripts/1A_acoustic_scripts/LF_scripts;data/1_data_raw/acoustic_raw;data/2_data_processed/acoustic_processed/LF_processed;data/3_data_analyzed/acoustic_analyzed/LF_analyzed;data/3_data_analyzed/acoustic_analyzed/HF_analyzed;data/5_data_gis/LF_gis_data;data/5_data_gis/HF_gis_data;data/6_data_analysis_outputs/maxent_model/3_HF_maxent_output/odontocetes;data/6_data_analysis_outputs/maxent_model/3_HF_maxent_output/sperm;data/6_data_analysis_outputs/maxent_model/3_HF_maxent_output/uo;data/6_data_analysis_outputs/maxent_model/3_LF_maxent_output/humpback;data/6_data_analysis_outputs/maxent_model/3_LF_maxent_output/minke"
+          
+          # Custom colors per file extension (anything not listed keeps its default color)
+          INPUT_FILE_COLORS: '{"csv": "#ff00f2", "png": "#91c8ff", "py": "#00F6FF", "ipynb": "#ae9fff", "tif": "#5900ff", "pdf": "#8ef6ce", "qmd": "#2DA1FF", "rds": "#DDA0DD", "txt": "#FFC300", "nc": "#24267d", "data": "#FFF68F"}'
+        
         run: |
           # Download version 0.7.1 of the action into a temporary folder on the runner
           git clone --quiet --depth 1 --branch 0.7.1 https://github.com/githubocto/repo-visualizer.git "$RUNNER_TEMP/repo-visualizer"
           
           # Write a small script that changes the action's label rules so LABEL_SHOW folders always get a label and LABEL_HIDE folders never do
+          # (it also adds INPUT_FILE_COLORS to the action's color list, because version 0.7.1 has no file_colors setting of its own)
           cat > "$RUNNER_TEMP/patch-labels.js" <<'EOF'
           const fs = require("fs");
           const file = process.argv[2];
@@ -61,8 +66,15 @@ jobs:
             }
             src = src.replace(oldText, newText);
           }
+          const colorStart = src.indexOf("var language_colors_default = {");
+          const colorEnd = src.indexOf("\n};", colorStart);
+          if (colorStart === -1 || colorEnd === -1) {
+            console.error("Could not find color list to change");
+            process.exit(1);
+          }
+          src = src.slice(0, colorEnd + 3) + '\nObject.assign(language_colors_default, JSON.parse(process.env.INPUT_FILE_COLORS || "{}"));' + src.slice(colorEnd + 3);
           fs.writeFileSync(file, src);
-          console.log("Label rules changed");
+          console.log("Label rules and colors changed");
           EOF
           
           # Apply the label change, then run the action to build diagram.svg
