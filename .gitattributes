@@ -1,0 +1,6 @@
+**/erddap_processed/*.csv filter=lfs diff=lfs merge=lfs -text
+*.RData filter=lfs diff=lfs merge=lfs -text
+*.sqlite3 filter=lfs diff=lfs merge=lfs -text
+serialisedBinaryMap.data filter=lfs diff=lfs merge=lfs -text
+data/6_data_analysis_outputs/maxent_model/geo_maxent_files/sst_maxent_env_stack_mur_nasajpl.nc filter=lfs diff=lfs merge=lfs -text
+figures/maps/unformatted/*.tif
