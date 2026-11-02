@@ -102,7 +102,7 @@ for col, dt in all_mins.dtypes.items():
 
 #%% Export df as CSV (output to 'LF_analyzed' folder in mission repo) for record-keeping
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-all_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/LF_analyzed/LF_all_mins_UVI2_Around_STX_20250306.csv")
+all_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/LF_analyzed/LF_all_mins_UVI2_Around_STX_20250306.csv")
 all_mins.to_csv(all_output_csv_path, index=False)
 print(f"Saved all mins CSV to: {all_output_csv_path}")
 
@@ -114,7 +114,7 @@ ALL_start_end_pairs = list(zip(all_mins["start_datetime_UTC"], all_mins["end_dat
 #❥ IMPORT CSV OF MINUTES MARKED AS SURFACINGS IN LF AUDIO ---------------------------------------------
 #%% Import CSV of surfacing mins in low-frequency spectrograms
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-surfacings_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/LF_analyzed/LF_surfacing_mins_UVI2_Around_STX_20250306.csv")
+surfacings_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/LF_analyzed/LF_surfacing_mins_UVI2_Around_STX_20250306.csv")
 surfacings = pd.read_csv(surfacings_csv_path)
 
 #%% Convert datetime columns to timezone-aware UTC datetimes (datetime64[ns, UTC])
@@ -175,6 +175,6 @@ for col, dt in possible_mins.dtypes.items():
 
 #%% Export df as CSV (output to 'LF_analyzed' folder in mission repo) for use in stats/arcgis mapping!!!
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-pos_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/LF_analyzed/LF_possible_mins_UVI2_Around_STX_20250306.csv")
+pos_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/LF_analyzed/LF_possible_mins_UVI2_Around_STX_20250306.csv")
 possible_mins.to_csv(pos_output_csv_path, index=False)
 print(f"Saved detections possible mins CSV to: {pos_output_csv_path}")

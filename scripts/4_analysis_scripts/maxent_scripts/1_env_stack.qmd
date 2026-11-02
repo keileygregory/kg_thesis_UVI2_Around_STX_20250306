@@ -70,7 +70,7 @@ Use bathymetry raster cropped to mission boundary (in ArcGIS) for extent of MaxE
 
 ```{r}
 #‼️‼️ UPDATE FILE PATH FOR MISSION
-bathy_raster <- rast("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/rasters_shapefiles/GBC15a_bathy_p26920_v6642.tif")
+bathy_raster <- rast("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/5_data_gis/rasters_shapefiles/GBC15a_bathy_p26920_v6642.tif")
 
 # tell terra to treat this value as NA
 bathy_raster[bathy_raster == -32768] <- NA
@@ -112,10 +112,10 @@ Set directory to output folders
 
 ```{r}
 #‼️‼️ UPDATE DIRECTORY PATH FOR MISSION
-geo_path <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/geo_maxent_files"
+geo_path <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/geo_maxent_files"
 
 #‼️‼️ UPDATE DIRECTORY PATH FOR MISSION
-env_out_path <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/1_env_stack_output"
+env_out_path <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/1_env_stack_output"
 ```
 
 # [SST, SSS, AND CHL-A DATA (PUBLIC SOURCES)]{.underline}
@@ -510,7 +510,7 @@ Load shoreline data from CARIBBEAN_SHORELINES shapefile
 
 ```{r}
 #‼️‼️ UPDATE FILE PATH FOR MISSION
-shore <- vect("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/rasters_shapefiles/caribbean_shorelines_shapefile/CARIBBEAN_SHORELINES.shp")
+shore <- vect("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/5_data_gis/rasters_shapefiles/caribbean_shorelines_shapefile/CARIBBEAN_SHORELINES.shp")
 
 # crop to map extent
 shore_crop <- project(shore, crs(bathy_1km))

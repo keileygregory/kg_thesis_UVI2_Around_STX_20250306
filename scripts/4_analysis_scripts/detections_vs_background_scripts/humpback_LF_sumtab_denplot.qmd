@@ -7,8 +7,8 @@ editor: visual
 
 > *This script compares oceanographic conditions at humpback detection points against LF mission background points for a mission; it exports separate humpback and background descriptive summary statistics tables (mean, SEM, SD, min, max) for ten environmental variables as CSV files, as well as a a multi-panel figure overlaying detection vs. background density distributions for each variable as a PNG file*
 >
-> - *Input .csv files directory: /Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/LF_gis_data*
-> - *Output summary table .csv files directory: /Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/summary_descriptstats_tables; Output density plot .png file directory: /Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/figures/envirovars_density_plots*
+> - *Input .csv files directory: /Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/5_data_gis/LF_gis_data*
+> - *Output summary table .csv files directory: /Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/6_data_analysis_outputs/summary_descriptstats_tables; Output density plot .png file directory: /Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/figures/envirovars_density_plots*
 
 > **𖠺 Created by Keiley Gregory on March 9, 2026**
 >
@@ -28,10 +28,10 @@ Import humpback data and LF background data
 
 ```{r}
 #‼️‼️ UPDATE FILE PATH FOR MISSION
-spc <- read_csv("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/LF_gis_data/tidy_humpback_points_p26920.csv")
+spc <- read_csv("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/5_data_gis/LF_gis_data/tidy_humpback_points_p26920.csv")
 
 #‼️‼️ UPDATE FILE PATH FOR MISSION
-bck <- read_csv("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/LF_gis_data/tidy_LF_background_points_p26920.csv")
+bck <- read_csv("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/5_data_gis/LF_gis_data/tidy_LF_background_points_p26920.csv")
 ```
 
 # SUMMARY TABLES
@@ -110,7 +110,7 @@ Export detections summary table as CSV
 
 ```{r}
 #‼️‼️ UPDATE FILE PATH FOR MISSION
-write_csv(spc_summary, "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/summary_descriptstats_tables/humpback_summarytable.csv")
+write_csv(spc_summary, "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/6_data_analysis_outputs/summary_descriptstats_tables/humpback_summarytable.csv")
 ```
 
 ### [**BACKGROUND**]{.underline} **SUMMARY TABLE**
@@ -187,7 +187,7 @@ Export background summary table as CSV
 
 ```{r}
 #‼️‼️ UPDATE FILE PATH FOR MISSION
-write_csv(bck_summary, "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/summary_descriptstats_tables/LF_background_summarytable.csv")
+write_csv(bck_summary, "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/6_data_analysis_outputs/summary_descriptstats_tables/LF_background_summarytable.csv")
 ```
 
 # PREPARATION FOR PLOTTING
@@ -434,5 +434,5 @@ Export multi-panel density plot as PNG
 
 ```{r}
 #‼️‼️ UPDATE FILE PATH FOR MISSION
-ggsave("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/figures/envirovars_density_plots/humpback_LF_envirovars_denplot_UVI2_Around_STX_20250306.png", density_STACK, width = 12, height = 9, dpi = 1000)
+ggsave("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/figures/envirovars_density_plots/humpback_LF_envirovars_denplot_UVI2_Around_STX_20250306.png", density_STACK, width = 12, height = 9, dpi = 1000)
 ```

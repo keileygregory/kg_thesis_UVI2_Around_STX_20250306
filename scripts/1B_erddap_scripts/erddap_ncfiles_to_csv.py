@@ -19,7 +19,7 @@ import xarray as xr
 
 #%% Path to the folder containing all erddap .nc files for mission
 #𖠜 CHANGE FOLDER PATH FOR CURRENT MISSION
-nc_folder = "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/1_data_raw/erddap_raw"
+nc_folder = "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/1_data_raw/erddap_raw"
 
 # print list of all .nc files in the specified folder in alphabetical (chronological) order
 nc_files = sorted(glob.glob(os.path.join(nc_folder, "*.nc")))
@@ -286,7 +286,7 @@ else:
 
         # export final df as CSV file
         #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-        output_csv = "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/2_data_processed/erddap_processed/erddap_UVI2_Around_STX_20250306.csv"
+        output_csv = "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/2_data_processed/erddap_processed/erddap_UVI2_Around_STX_20250306.csv"
         df.to_csv(output_csv, index=False)
         print(f"CSV exported to: {output_csv}")
 

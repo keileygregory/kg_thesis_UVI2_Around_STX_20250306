@@ -17,7 +17,7 @@ import pandas as pd
 
 #%% Load CSV with all Odontocetes detections combined
 #𖠜 UPDATE FILE PATH FOR MISSION
-input_csv = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/HF_gis_data/tidy_odontocetes_points_p26920.csv")
+input_csv = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/5_data_gis/HF_gis_data/tidy_odontocetes_points_p26920.csv")
 df = pd.read_csv(input_csv)   
 
 
@@ -171,14 +171,14 @@ for col, dt in uo_df.dtypes.items():
 #❥ Export separated data
 #%% Export separated goose/kogia/gervais/uo dfs as CSVs
 #𖠜 UPDATE FILE PATH FOR MISSION
-output_kogia = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/HF_gis_data/tidy_kogia_points_p26920.csv")
+output_kogia = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/5_data_gis/HF_gis_data/tidy_kogia_points_p26920.csv")
 kogia_df.to_csv(output_kogia, index=False)
 
-output_goose = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/HF_gis_data/tidy_goose_points_p26920.csv")
+output_goose = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/5_data_gis/HF_gis_data/tidy_goose_points_p26920.csv")
 goose_df.to_csv(output_goose, index=False)
 
-output_gervais = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/HF_gis_data/tidy_gervais_points_p26920.csv")
+output_gervais = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/5_data_gis/HF_gis_data/tidy_gervais_points_p26920.csv")
 gervais_df.to_csv(output_gervais, index=False)
 
-output_uo = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/HF_gis_data/tidy_uo_points_p26920.csv")
+output_uo = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/5_data_gis/HF_gis_data/tidy_uo_points_p26920.csv")
 uo_df.to_csv(output_uo, index=False)

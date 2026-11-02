@@ -19,7 +19,7 @@ import re
 
 #%% Load raw exported data from 'Click_Detector_OfflineEvents' table (downloaded from Pamguard_UVI2_Around_STX_20250306.sqlite3 database via SQLite Studio app)
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-raw_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/2_data_processed/acoustic_processed/HF_processed/rawexport_pamguard_sqlite_click_detector_offlineevents_UVI2_Around_STX_20250306.csv")
+raw_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/2_data_processed/acoustic_processed/HF_processed/rawexport_pamguard_sqlite_click_detector_offlineevents_UVI2_Around_STX_20250306.csv")
 raw_data = pd.read_csv(raw_path)
 
 #%% Create working copy of raw_data df (leave original df unedited)
@@ -235,7 +235,7 @@ for col, dt in tidy_data.dtypes.items():
 
 #%% Export tidy version of raw exported data from 'Click_Detector_OfflineEvents' table (downloaded from Pamguard_UVI2_Around_STX_20250306.sqlite3 database via SQLite Studio app)
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-tidy_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/2_data_processed/acoustic_processed/HF_processed/tidy_pamguard_sqlite_clickevents_UVI2_Around_STX_20250306.csv")
+tidy_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/2_data_processed/acoustic_processed/HF_processed/tidy_pamguard_sqlite_clickevents_UVI2_Around_STX_20250306.csv")
 tidy_data.to_csv(tidy_path, index=False)
 print(f"Saved tidy pamguard sqlite click events CSV to: {tidy_path}")
 
@@ -246,7 +246,7 @@ print(f"Saved tidy pamguard sqlite click events CSV to: {tidy_path}")
 #✦ Import and format CSV of all HF recorded audio minutes
 #%% Import CSV of all HF recorded audio minutes (derived from .wav filenames in script 3_all_HF_mins_from_filenames.py)
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-all_mins_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/HF_all_mins_UVI2_Around_STX_20250306.csv")
+all_mins_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/HF_all_mins_UVI2_Around_STX_20250306.csv")
 all_mins = pd.read_csv(all_mins_path)
 
 #%% Check data type of all cols in imported 'all_mins' df
@@ -404,6 +404,6 @@ for col, dt in final_HF_data.dtypes.items():
 
 #%% Export final HF click events CSV for species separations
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-final_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/2_data_processed/acoustic_processed/HF_processed/all_HF_clickevents_UVI2_Around_STX_20250306.csv")
+final_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/2_data_processed/acoustic_processed/HF_processed/all_HF_clickevents_UVI2_Around_STX_20250306.csv")
 final_HF_data.to_csv(final_path, index=False)
 print(f"Saved final HF click events CSV to: {final_path}")

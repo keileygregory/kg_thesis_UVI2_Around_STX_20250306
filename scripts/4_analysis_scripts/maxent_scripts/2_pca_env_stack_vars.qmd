@@ -28,7 +28,7 @@ Import `maxent_env_stack_1km_UTM20N.tif` + convert terra stack to raster for RSt
 
 ```{r}
 #‼️‼️ UPDATE FILE PATH FOR MISSION
-env_stack <- terra::rast("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/1_env_stack_output/maxent_env_stack_1km_UTM20N.tif")
+env_stack <- terra::rast("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/1_env_stack_output/maxent_env_stack_1km_UTM20N.tif")
 ```
 
 # PRINCIPAL COMPONENT ANALYSIS (PCA)
@@ -54,7 +54,7 @@ Export plots of individual PCs as PNG files
 ```{r}
 #‼️‼️ UPDATE FILE PATH FOR MISSION
 for (i in 1:3) {
-  png(paste0("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/2_pca_output/pca_pc", i, ".png"), width = 8, height = 6, units = "in", res = 300)
+  png(paste0("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/2_pca_output/pca_pc", i, ".png"), width = 8, height = 6, units = "in", res = 300)
   plot(pca_result$map[[i]], main = paste0("PC", i))
   dev.off()
 }
@@ -144,7 +144,7 @@ Export PC1-PC2 biplot as PNG
 
 ```{r}
 #‼️‼️ UPDATE FILE PATH FOR MISSION
-png("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/2_pca_output/pca_biplot_pc1_pc2.png", width = 10, height = 10, units = "in", res = 500)
+png("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/2_pca_output/pca_biplot_pc1_pc2.png", width = 10, height = 10, units = "in", res = 500)
 print(p_pc1pc2)
 dev.off()
 ```
@@ -201,7 +201,7 @@ Export PC1-PC3 biplot as PNG
 
 ```{r}
 #‼️‼️ UPDATE FILE PATH FOR MISSION
-png("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/2_pca_output/pca_biplot_pc1_pc3.png",
+png("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/2_pca_output/pca_biplot_pc1_pc3.png",
     width = 10, height = 10, units = "in", res = 500)
 print(p_pc1pc3)
 dev.off()
@@ -259,7 +259,7 @@ Export PC2-PC3 biplot as PNG
 
 ```{r}
 #‼️‼️ UPDATE FILE PATH FOR MISSION
-png("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/2_pca_output/pca_biplot_pc2_pc3.png", width = 10, height = 10, units = "in", res = 500)
+png("/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/2_pca_output/pca_biplot_pc2_pc3.png", width = 10, height = 10, units = "in", res = 500)
 print(p_pc2pc3)
 dev.off()
 ```

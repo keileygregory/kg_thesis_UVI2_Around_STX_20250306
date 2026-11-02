@@ -20,7 +20,7 @@ import re
 
 #%% Import CSV of combined high-frequency selection table data
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/2_data_processed/acoustic_processed/HF_processed/all_HF_clickevents_UVI2_Around_STX_20250306.csv")
+csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/2_data_processed/acoustic_processed/HF_processed/all_HF_clickevents_UVI2_Around_STX_20250306.csv")
 raw_data = pd.read_csv(csv_path)
 
 #✦ TIDY DATAFRAME + EXTRACT START DATETIME FROM FILENAME + INSPECT SPECIES ID CODE DATA (IN PREPARATION TO SPLIT DF BY SPECIES)
@@ -245,7 +245,7 @@ for col, dt in sperm_final.dtypes.items():
 
 #%% Export final sperm df as CSV (output to 'HF_analyzed' folder in mission repo); this CSV will be used for interpolation calculations!!
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-pm_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/sperm_analyzed_UVI2_Around_STX_20250306.csv")
+pm_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/sperm_analyzed_UVI2_Around_STX_20250306.csv")
 sperm_final.to_csv(pm_output_csv_path, index=False)
 print(f"Saved sperm CSV to: {pm_output_csv_path}")
 
@@ -344,7 +344,7 @@ for col, dt in unid_odontocetes_final.dtypes.items():
 
 #%% Export final odontocetes df as CSV (output to 'HF_analyzed' folder in mission repo); this CSV will be used for interpolation calculations!!
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-uo_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/unidentified_odontocetes_analyzed_UVI2_Around_STX_20250306.csv")
+uo_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/unidentified_odontocetes_analyzed_UVI2_Around_STX_20250306.csv")
 unid_odontocetes_final.to_csv(uo_output_csv_path, index=False)
 print(f"Saved odontocetes CSV to: {uo_output_csv_path}")
 
@@ -451,7 +451,7 @@ for col, dt in gervais_final.dtypes.items():
 
 #%% Export final gervais df as CSV (output to 'HF_analyzed' folder in mission repo); this CSV will be used for interpolation calculations!!
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-me_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/gervais_analyzed_UVI2_Around_STX_20250306.csv")
+me_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/gervais_analyzed_UVI2_Around_STX_20250306.csv")
 gervais_final.to_csv(me_output_csv_path, index=False)
 print(f"Saved gervais CSV to: {me_output_csv_path}")
 
@@ -558,7 +558,7 @@ for col, dt in goose_final.dtypes.items():
 
 #%% Export final goose df as CSV (output to 'HF_analyzed' folder in mission repo); this CSV will be used for interpolation calculations!!
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-zc_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/goose_analyzed_UVI2_Around_STX_20250306.csv")
+zc_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/goose_analyzed_UVI2_Around_STX_20250306.csv")
 goose_final.to_csv(zc_output_csv_path, index=False)
 print(f"Saved goose CSV to: {zc_output_csv_path}")
 
@@ -665,7 +665,7 @@ for col, dt in kogia_final.dtypes.items():
 
 #%% Export final kogia df as CSV (output to 'HF_analyzed' folder in mission repo); this CSV will be used for interpolation calculations!!
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-kg_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/kogia_analyzed_UVI2_Around_STX_20250306.csv")
+kg_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/kogia_analyzed_UVI2_Around_STX_20250306.csv")
 kogia_final.to_csv(kg_output_csv_path, index=False)
 print(f"Saved kogia CSV to: {kg_output_csv_path}")
 
@@ -733,7 +733,7 @@ for col, dt in other_odontocetes.dtypes.items():
 
 #%% Export final combined non-sperm odontocetes df as CSV
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-other_odo_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/odontocetes_analyzed_UVI2_Around_STX_20250306.csv")
+other_odo_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/odontocetes_analyzed_UVI2_Around_STX_20250306.csv")
 other_odontocetes.to_csv(other_odo_output_csv_path, index=False)
 print(f"Saved other odontocetes CSV to: {other_odo_output_csv_path}")
 
@@ -807,6 +807,6 @@ for col, dt in surfacing_final.dtypes.items():
 
 #%% Export final surfacing df as CSV (output to 'HF_analyzed' folder in mission repo); this CSV will be used for interpolation calculations!!
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-surf_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/HF_surfacing_mins_UVI2_Around_STX_20250306.csv")
+surf_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/HF_surfacing_mins_UVI2_Around_STX_20250306.csv")
 surfacing_final.to_csv(surf_output_csv_path, index=False)
 print(f"Saved surfacing CSV to: {surf_output_csv_path}")

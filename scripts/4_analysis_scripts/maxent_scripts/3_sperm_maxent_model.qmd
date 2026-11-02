@@ -34,35 +34,35 @@ Import TIFF of env stack
 
 ```{r}
 # ‼️ CHANGE FILE PATH FOR MISSION
-env_stack_path <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/1_env_stack_output/maxent_env_stack_1km_UTM20N.tif"
+env_stack_path <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/1_env_stack_output/maxent_env_stack_1km_UTM20N.tif"
 ```
 
 Import species detections CSV + HF background CSV
 
 ```{r}
 # ‼️ CHANGE FILE PATH FOR MISSION
-spc_csv_path <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/HF_gis_data/tidy_sperm_points_p26920.csv"
+spc_csv_path <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/5_data_gis/HF_gis_data/tidy_sperm_points_p26920.csv"
 
 # ‼️ CHANGE FILE PATH FOR MISSION
-bg_csv_path <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/HF_gis_data/tidy_HF_background_points_p26920.csv"
+bg_csv_path <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/5_data_gis/HF_gis_data/tidy_HF_background_points_p26920.csv"
 ```
 
 Input shorelines shapefile
 
 ```{r}
 # ‼️ CHANGE FILE PATH FOR MISSION
-shore_path <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/rasters_shapefiles/caribbean_shorelines_shapefile/CARIBBEAN_SHORELINES.shp"
+shore_path <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/5_data_gis/rasters_shapefiles/caribbean_shorelines_shapefile/CARIBBEAN_SHORELINES.shp"
 ```
 
 Set output directories
 
 ```{r}
 # ‼️ CHANGE FILE PATH FOR MISSION
-out_base <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/3_HF_maxent_output/"
+out_base <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/6_data_analysis_outputs/maxent_model/3_HF_maxent_output/"
 out_spc <- paste0(out_base, "sperm/")
 
 # ‼️ CHANGE FILE PATH FOR MISSION
-fig_dir <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/figures/maxent_model/"
+fig_dir <- "/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/figures/maxent_model/"
 ```
 
 ### PREPARATION FOR JAVA MAXENT

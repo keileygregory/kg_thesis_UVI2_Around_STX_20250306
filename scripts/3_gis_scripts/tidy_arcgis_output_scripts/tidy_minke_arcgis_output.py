@@ -17,7 +17,7 @@ import pandas as pd
 
 #%% Load raw ArcGIS output CSV file
 #𖠜 UPDATE FILE PATH FOR MISSION
-input_csv = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/LF_gis_data/calc_minke_points_p26920.csv")
+input_csv = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/5_data_gis/LF_gis_data/calc_minke_points_p26920.csv")
 df = pd.read_csv(input_csv)   
 
 #❥ SET ALL VALUES IN glider_profile_id TO WHOLE INTEGERS (NO DECIMALS)
@@ -125,7 +125,7 @@ for col, dt in df.dtypes.items():
 
 #%% Export tidy df as CSV
 #𖠜 UPDATE FILE PATH FOR MISSION
-output_csv = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/5_data_gis/LF_gis_data/tidy_minke_points_p26920.csv")
+output_csv = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/5_data_gis/LF_gis_data/tidy_minke_points_p26920.csv")
 df.to_csv(output_csv, index=False)
 
 # print confirmation

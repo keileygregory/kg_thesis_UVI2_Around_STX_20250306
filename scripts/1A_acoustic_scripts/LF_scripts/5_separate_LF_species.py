@@ -19,7 +19,7 @@ import re
 
 #%% Import CSV of combined low-frequency selection table data
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/2_data_processed/acoustic_processed/LF_processed/LF_analysis_results_UVI2_Around_STX_20250306.csv")
+csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/2_data_processed/acoustic_processed/LF_processed/LF_analysis_results_UVI2_Around_STX_20250306.csv")
 raw_data = pd.read_csv(csv_path)
 
 #✦ TIDY DATAFRAME + EXTRACT START DATETIME FROM FILENAME + INSPECT SPECIES ID CODE DATA (IN PREPARATION TO SPLIT DF BY SPECIES)                                    
@@ -233,7 +233,7 @@ humpback_clean["species"] = "novaeangliae"
 humpback_clean["common_name"] = "humpback whale"
 
 #%% Clean strings in classification cols (ensure string format, strip whitespace)
-humpback_clean["suborder"] = humpback_clean["family"].astype("string").str.strip()
+humpback_clean["suborder"] = humpback_clean["suborder"].astype("string").str.strip()
 humpback_clean["family"] = humpback_clean["family"].astype("string").str.strip()
 humpback_clean["genus"] = humpback_clean["genus"].astype("string").str.strip()
 humpback_clean["species"] = humpback_clean["species"].astype("string").str.strip()
@@ -307,7 +307,7 @@ for col, dt in humpback_final.dtypes.items():
 
 #%% Export final humpback df as CSV (output to 'LF_analyzed' folder in mission repo); this CSV will be used for interpolation calculations!!
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-hb_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/LF_analyzed/humpback_analyzed_UVI2_Around_STX_20250306.csv")
+hb_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/LF_analyzed/humpback_analyzed_UVI2_Around_STX_20250306.csv")
 humpback_final.to_csv(hb_output_csv_path, index=False)
 print(f"Saved humpback CSV to: {hb_output_csv_path}")
 
@@ -329,7 +329,7 @@ minke_clean["species"] = "acutorostrata"
 minke_clean["common_name"] = "minke whale"
 
 #%% Clean strings in classification cols (ensure string format, strip whitespace)
-minke_clean["suborder"] = minke_clean["family"].astype("string").str.strip()
+minke_clean["suborder"] = minke_clean["suborder"].astype("string").str.strip()
 minke_clean["family"] = minke_clean["family"].astype("string").str.strip()
 minke_clean["genus"] = minke_clean["genus"].astype("string").str.strip()
 minke_clean["species"] = minke_clean["species"].astype("string").str.strip()
@@ -403,7 +403,7 @@ for col, dt in minke_final.dtypes.items():
 
 #%% Export final minke df as CSV (output to 'LF_analyzed' folder in mission repo); this CSV will be used for interpolation calculations!!
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-mk_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/LF_analyzed/minke_analyzed_UVI2_Around_STX_20250306.csv")
+mk_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/LF_analyzed/minke_analyzed_UVI2_Around_STX_20250306.csv")
 minke_final.to_csv(mk_output_csv_path, index=False)
 print(f"Saved minke CSV to: {mk_output_csv_path}")
 
@@ -467,6 +467,6 @@ for col, dt in surfacings_nodup.dtypes.items():
 
 #%% Export final surfacings df as CSV (output to 'LF_analyzed' folder in mission repo); this CSV will be used to remove mins where detections are NOT possible
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-surf_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/LF_analyzed/LF_surfacing_mins_UVI2_Around_STX_20250306.csv")
+surf_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/LF_analyzed/LF_surfacing_mins_UVI2_Around_STX_20250306.csv")
 surfacings_nodup.to_csv(surf_output_csv_path, index=False)
 print(f"Saved surfacings CSV to: {surf_output_csv_path}")

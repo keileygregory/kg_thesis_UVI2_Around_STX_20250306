@@ -20,11 +20,11 @@ import glob
 
 #%% Import DETECTIONS csv
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-csv_raw = pd.read_csv(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/LF_analyzed/humpback_analyzed_UVI2_Around_STX_20250306.csv")
+csv_raw = pd.read_csv(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/LF_analyzed/humpback_analyzed_UVI2_Around_STX_20250306.csv")
 
 # Import ERDDAP **RAW .NC FILES**
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-nc_folder = r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/1_data_raw/erddap_raw"
+nc_folder = r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/1_data_raw/erddap_raw"
 
 #%% Create copy of wd_raw for edits
 csv = csv_raw.copy()
@@ -735,7 +735,7 @@ df_final_fixNA = df_final_fixNA.replace(r"^\s*$", pd.NA, regex=True)
 
 #%% Export final dataframe to CSV
 #𖠜 UPDATE FILE PATH FOR MISSION
-output_path = r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/4_data_interpolated/humpback_INTERPOLATED_UVI2_Around_STX_20250306.csv"
+output_path = r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/4_data_interpolated/humpback_INTERPOLATED_UVI2_Around_STX_20250306.csv"
 df_final_fixNA.to_csv(output_path, index=False)
 # print export confirmation and output CSV df shape
 print(f"Exported file to: {output_path}")
