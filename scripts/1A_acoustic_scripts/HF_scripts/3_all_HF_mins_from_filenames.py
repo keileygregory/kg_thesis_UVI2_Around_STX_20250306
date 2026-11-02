@@ -108,6 +108,6 @@ all_mins = all_mins.sort_values(
 
 #%% Export df as CSV (output to 'HF_analyzed' folder in mission repo) for record-keeping
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-all_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/HF_all_mins_UVI2_Around_STX_20250306.csv")
+all_output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/PUBLIC_REPOS/kg_thesis_UVI2_Around_STX_20250306/data/3_data_analyzed/acoustic_analyzed/HF_analyzed/HF_all_mins_UVI2_Around_STX_20250306.csv")
 all_mins.to_csv(all_output_csv_path, index=False)
 print(f"Saved all mins CSV to: {all_output_csv_path}")

@@ -19,7 +19,7 @@ import re
 
 #%% Import CSV of combined low-frequency selection table data
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/2_data_processed/acoustic_processed/LF_processed/LF_UVI2_AroundSTX_COMBINED.csv")
+csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/2_data_processed/acoustic_processed/LF_processed/LF_analysis_results_UVI2_Around_STX_20250306.csv")
 raw_data = pd.read_csv(csv_path)
 
 #✦ TIDY DATAFRAME + EXTRACT START DATETIME FROM FILENAME + INSPECT SPECIES ID CODE DATA (IN PREPARATION TO SPLIT DF BY SPECIES)                                    

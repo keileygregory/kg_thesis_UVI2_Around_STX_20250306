@@ -179,5 +179,5 @@ print(f"Combined {len(tidy_dfs)} dataframes -> {len(combined_tidy)} total rows")
 
 #%% Export combined CSV
 #𖠜 CHANGE FILE PATH FOR CURRENT MISSION
-output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/2_data_processed/acoustic_processed/LF_processed/LF_UVI2_AroundSTX_COMBINED.csv")
+output_csv_path = Path(r"/Users/keileygregory/THESIS_REPOSITORIES/MISSION_REPOSITORIES/UVI2_Around_STX_20250306/data/2_data_processed/acoustic_processed/LF_processed/LF_analysis_results_UVI2_Around_STX_20250306.csv")
 combined_tidy.to_csv(output_csv_path, index=False)
